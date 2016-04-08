@@ -85,6 +85,9 @@ function! ClosePair(char)
 endfunction
 " get the root right to write
 cmap w!! w !sudo tee > /dev/null %
+" open Completion Navigation List
+set wildmenu
+set wildmode=full
 
 
 " Highlight current line
