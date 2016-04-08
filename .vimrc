@@ -36,6 +36,7 @@ set ignorecase	    " Do case insensitive matching
 set autowrite	    " Automatically save before commands like :next and :make
 "set hidden         " Hide buffers when they are abandoned
 "set mouse=a        " Enable mouse usage (all modes)
+set hls
 set number
 set numberwidth=5
 set cursorline
@@ -82,6 +83,7 @@ function! ClosePair(char)
         return a:char
     endif
 endfunction
+" get the root right to write
 cmap w!! w !sudo tee > /dev/null %
 
 
