@@ -1,3 +1,3 @@
 # MyVinrc
-> This is my .Vimrc.
-> My name, MyVinrc， is a mistake.
+> The repository is for my .Vimrc.
+> The name, MyVinrc， is a mistake. Take it out of your mind.
