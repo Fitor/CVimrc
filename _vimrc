@@ -116,7 +116,7 @@ endif
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
 set background=dark
-color delek
+color darkblue
 
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
@@ -141,6 +141,7 @@ set autowrite	    " Automatically save before commands like :next and :make
 "set hidden         " Hide buffers when they are abandoned
 "set mouse=a        " Enable mouse usage (all modes)
 set hls
+set relativenumber
 set number
 set numberwidth=5
 set cursorline
@@ -176,13 +177,12 @@ au Winleave * set nocursorline nocursorcolumn
 au WinEnter * set cursorline cursorcolumn
 
 " Default Indentation
-" set autoindent
-set smartindent
+ set autoindent
+"set smartindent
 set tabstop=4
-set softtabstop=4
+"set softtabstop=4
 set shiftwidth=4
 set expandtab
-
 
 
 " --------------------------------------------------------------------------
