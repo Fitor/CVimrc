@@ -221,3 +221,7 @@ function MyDiff()
   endif
 endfunction
 
+vmap ;c :norm 0i//<CR>
+vmap ;uc :norm 02x<CR>
+nmap ;c 0i//<ESC>
+nmap :uc 02x
