@@ -226,3 +226,13 @@ vmap <leader>c :norm 0i//<CR>
 vmap <leader>uc :norm 02x<CR>
 nmap <leader>c 0i//<ESC>w
 nmap <leader>uc 02xw
+
+
+" under here is just temp
+"set cursorline
+"hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+"set cursorcolumn
+"hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+"
+"set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+"set fenc=gbk
