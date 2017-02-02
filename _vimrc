@@ -227,6 +227,8 @@ vmap <leader>uc :norm 02x<CR>
 nmap <leader>c 0i//<ESC>w
 nmap <leader>uc 02xw
 
+" 设置背景透明
+hi Normal ctermfg=252 ctermbg=none
 
 " under here is just temp
 "set cursorline
