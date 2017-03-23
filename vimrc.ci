@@ -15,11 +15,26 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+" Vundle
+if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
+        set rtp+=$HOME/.vim/bundle/Vundle.vim
+        call vundle#begin()
+        Plugin 'VundleVim/Vundle.vim'
+        if isdirectory($HOME . "/.vim/MyVinrc")
+            if filereadable($HOME . "/.vim/MyVinrc/Vundle_config.vim")
+                source $HOME/.vim/MyVinrc/Vundle_config.vim
+            endif
+        endif
+        call vundle#end()
+endif
+
 " mapleader
 let mapleader = ";"
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
+
+filetype plugin indent on      " Automatically detect file types.
 
 set nobackup    " do not keep a backup file, use veersions instead
 " set backup    " keep a backup file (restore to previoius version)
@@ -30,13 +45,21 @@ set ruler       " show the cursor position all the time
 set showcmd     " display incomplete commands
 set incsearch   " do incremental searching
 set ignorecase
+set number
 set relativenumber
 set numberwidth=5
 set cursorline
 set foldenable
 set foldmethod=manual
 " set foldcolumn=4
-set cmdheight=1
+set cmdheight=2
+
+set tabstop=4	" Number of spaces that a <Tab> in the file counts for.
+set expandtab   " In Insert mode: Use the appropriate number of spaces to insert a <Tab>.
+set shiftwidth=4    " Number of spaces to use for each step of (auto)indent.
+set softtabstop=4   " Number of spaces that a <Tab> counts for while performing editing operations, like inserting a <Tab> or using <BS>.
+set autoindent      " Copy indent from current line when starting a new line.
+set cindent " Enables automatic C program indenting.
 
 setlocal noswapfile
 set bufhidden=hide
@@ -63,34 +86,3 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
-
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin indent on
-
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
-  au!
-
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
-
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-  autocmd BufReadPost *
-    \ if line("'\"") >= 1 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
-
-  augroup END
-
-else
-
-  set autoindent		" always set autoindenting on
-
-endif " has("autocmd")
