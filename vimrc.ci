@@ -28,6 +28,14 @@ if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
         call vundle#end()
 endif
 
+" Expand
+if isdirectory($HOME . "/.vim/MyVinrc")
+    if filereadable($HOME . "/.vim/MyVinrc/quick_comment.vim")
+        source $HOME/.vim/MyVinrc/quick_comment.vim
+    endif
+endif
+
+
 " mapleader
 let mapleader = ";"
 
@@ -85,7 +93,7 @@ hi Normal ctermfg=252 ctermbg=none
 
 " Highlight current line
 au Winleave * set nocursorline nocursorcolumn
-au WinEnter * set cursorline cursorcolumn
+au WinEnter * set cursorline nocursorcolumn
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
