@@ -100,8 +100,9 @@ if has('langmap') && exists('+langnoremap')
   " mapping.  If unset (default), this may break plugins (but it's backward
   " compatible).
   set langnoremap
-endif" Change mapleader
+endif
 
+" Change mapleader
 " by yc
 let mapleader = ";"
 " Uncomment the following to enable the pathogen.vim
@@ -222,7 +223,19 @@ function MyDiff()
   endif
 endfunction
 
-vmap ;c :norm 0i//<CR>
-vmap ;uc :norm 02x<CR>
-nmap ;c 0i//<ESC>w
-nmap :uc 02xw
+vmap <leader>c :norm 0i//<CR>
+vmap <leader>uc :norm 02x<CR>
+nmap <leader>c 0i//<ESC>w
+nmap <leader>uc 02xw
+
+" 设置背景透明
+hi Normal ctermfg=252 ctermbg=none
+
+" under here is just temp
+"set cursorline
+"hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+"set cursorcolumn
+"hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+"
+"set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+"set fenc=gbk
