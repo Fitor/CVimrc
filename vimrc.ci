@@ -56,7 +56,8 @@ set backspace=indent,eol,start
 
 filetype plugin indent on      " Automatically detect file types.
 
-set nobackup    " do not keep a backup file, use veersions instead
+" setlocal noswapfile
+" set nobackup    " do not keep a backup file, use versions instead
 " set backup    " keep a backup file (restore to previoius version)
 " set undofile  " keep an undo file (undo changes after closing)
 
@@ -77,11 +78,10 @@ set cmdheight=2
 set tabstop=4	" Number of spaces that a <Tab> in the file counts for.
 set expandtab   " In Insert mode: Use the appropriate number of spaces to insert a <Tab>.
 set shiftwidth=4    " Number of spaces to use for each step of (auto)indent.
-set softtabstop=4   " Number of spaces that a <Tab> counts for while performing editing operations, like inserting a <Tab> or using <BS>.
+" set softtabstop=4   " Number of spaces that a <Tab> counts for while performing editing operations, like inserting a <Tab> or using <BS>.
 set autoindent      " Copy indent from current line when starting a new line.
 set cindent " Enables automatic C program indenting.
 
-setlocal noswapfile
 set bufhidden=hide
 set linespace=0
 set scrolloff=3
