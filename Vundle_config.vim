@@ -14,6 +14,9 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 Plugin 'DoxygenToolkit.vim'
+Plugin 'header.vim'
+Plugin 'dbext.vim'
+Plugin 'scrooloose/nerdtree'
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
