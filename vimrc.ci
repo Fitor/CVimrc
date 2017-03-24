@@ -15,6 +15,9 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+" mapleader
+let mapleader = ";"
+
 " Vundle
 if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
         set rtp+=$HOME/.vim/bundle/Vundle.vim
@@ -28,16 +31,17 @@ if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
         call vundle#end()
 endif
 
+" DoxygenToolkit configure
+if filereadable($HOME . "/.vim/MyVinrc/DoxygenToolkit_config.vim")
+    source $HOME/.vim/MyVinrc/DoxygenToolkit_config.vim
+endif
+
 " Expand
 if isdirectory($HOME . "/.vim/MyVinrc")
     if filereadable($HOME . "/.vim/MyVinrc/quick_comment.vim")
         source $HOME/.vim/MyVinrc/quick_comment.vim
     endif
 endif
-
-
-" mapleader
-let mapleader = ";"
 
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid or when inside an event handler

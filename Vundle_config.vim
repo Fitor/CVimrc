@@ -11,7 +11,7 @@ endif
 let g:did_vundle_config = 1
 
 let s:save_cpo = &cpo
-set cpo&vim
+ set cpo&vim
 
 Plugin 'DoxygenToolkit.vim'
 Plugin 'header.vim'
@@ -20,3 +20,4 @@ Plugin 'scrooloose/nerdtree'
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
+
