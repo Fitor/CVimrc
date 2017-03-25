@@ -20,7 +20,7 @@ let mapleader = ";"
 
 " Vundle
 if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
-        set rtp+=$HOME/.vim/bundle/Vundle.vim
+        set runtimepath+=$HOME/.vim/bundle/Vundle.vim
         call vundle#begin()
         Plugin 'VundleVim/Vundle.vim'
         if isdirectory($HOME . "/.vim/MyVinrc")
