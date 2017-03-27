@@ -238,4 +238,3 @@ hi Normal ctermfg=252 ctermbg=none
 "hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 "
 "set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
-"set fenc=gbk
