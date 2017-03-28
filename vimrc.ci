@@ -36,6 +36,11 @@ if filereadable($HOME . "/.vim/MyVinrc/DoxygenToolkit_config.vim")
     source $HOME/.vim/MyVinrc/DoxygenToolkit_config.vim
 endif
 
+" Powerline configure
+if filereadable($HOME . "/.vim/MyVinrc/powerline_config.vim")
+    source $HOME/.vim/MyVinrc/powerline_config.vim
+endif
+
 " Expand
 if isdirectory($HOME . "/.vim/MyVinrc")
     if filereadable($HOME . "/.vim/MyVinrc/quick_comment.vim")

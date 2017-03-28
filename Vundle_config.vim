@@ -17,6 +17,7 @@ Plugin 'DoxygenToolkit.vim'
 Plugin 'header.vim'
 Plugin 'dbext.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'Lokaltog/vim-powerline'
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
