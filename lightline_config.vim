@@ -3,7 +3,7 @@
 " FILE:     lightline_config.vim
 " ROLE:     TODO (some explanation)
 " CREATED:  2017-03-31 23:27:24
-" MODIFIED: 2017-04-01 00:56:48
+" MODIFIED: 2017-04-01 01:27:46
 
 if exists("did_lightline_config")
     finish
@@ -13,7 +13,10 @@ let did_lightline_config = 1
 set laststatus=2
 
 let g:lightline = {
-    \ 'colorscheme': 'wombat',
+    \ 'colorscheme': 'landscape',
+    \ 'mode_map': {
+    \   'c': 'SEARCH'
+    \ },
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
     \             [ 'readonly', 'filename', 'modified' ] ]
@@ -29,3 +32,4 @@ let g:lightline = {
     \ 'separator': { 'left': '', 'right': '' },
     \ 'subseparator': { 'left': '|', 'right': '|' }
     \ }
+
