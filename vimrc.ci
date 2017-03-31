@@ -41,6 +41,11 @@ if filereadable($HOME . "/.vim/MyVinrc/powerline_config.vim")
     source $HOME/.vim/MyVinrc/powerline_config.vim
 endif
 
+" lightline configure
+if filereadable($HOME . "/.vim/MyVinrc/lightline_config.vim")
+    source $HOME/.vim/MyVinrc/lightline_config.vim
+endif
+
 " Expand
 if isdirectory($HOME . "/.vim/MyVinrc")
     if filereadable($HOME . "/.vim/MyVinrc/quick_comment.vim")
