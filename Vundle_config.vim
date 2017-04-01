@@ -19,6 +19,7 @@ Plugin 'dbext.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'itchyny/lightline.vim'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'godlygeek/tabular'
 " Plugin 'Lokaltog/vim-powerline'
 
 let &cpo = s:save_cpo
