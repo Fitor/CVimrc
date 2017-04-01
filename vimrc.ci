@@ -85,6 +85,8 @@ set foldmethod=manual
 " set foldcolumn=4
 set cmdheight=2
 
+set t_Co=256
+
 set tabstop=4	" Number of spaces that a <Tab> in the file counts for.
 set expandtab   " In Insert mode: Use the appropriate number of spaces to insert a <Tab>.
 set shiftwidth=4    " Number of spaces to use for each step of (auto)indent.
