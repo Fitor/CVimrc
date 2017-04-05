@@ -52,6 +52,11 @@ if filereadable($HOME . "/.vim/MyVinrc/lightline_config.vim")
     source $HOME/.vim/MyVinrc/lightline_config.vim
 endif
 
+" code_complete configure
+if filereadable($HOME . "/.vim/MyVinrc/code_complete_config.vim")
+    source $HOME/.vim/MyVinrc/code_complete_config.vim
+endif
+
 " Expand
 if isdirectory($HOME . "/.vim/MyVinrc")
     if filereadable($HOME . "/.vim/MyVinrc/quick_comment.vim")
@@ -129,3 +134,4 @@ endif
 " set file encoding
 set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 set fenc=gbk
+
