@@ -18,18 +18,23 @@ set nocompatible
 " mapleader
 let mapleader = ";"
 
+" CI.vim
+if isdirectory($HOME . "/.vim/MyVinrc/CI.vim")
+    set runtimepath+=$HOME/.vim/MyVinrc/CI.vim
+endif
+
 " Vundle
 if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
-        filetype off
-        set runtimepath+=$HOME/.vim/bundle/Vundle.vim
-        call vundle#begin()
-        Plugin 'VundleVim/Vundle.vim'
-        if isdirectory($HOME . "/.vim/MyVinrc")
-            if filereadable($HOME . "/.vim/MyVinrc/Vundle_config.vim")
-                source $HOME/.vim/MyVinrc/Vundle_config.vim
-            endif
+    filetype off
+    set runtimepath+=$HOME/.vim/bundle/Vundle.vim
+    call vundle#begin()
+    Plugin 'VundleVim/Vundle.vim'
+    if isdirectory($HOME . "/.vim/MyVinrc")
+        if filereadable($HOME . "/.vim/MyVinrc/Vundle_config.vim")
+            source $HOME/.vim/MyVinrc/Vundle_config.vim
         endif
-        call vundle#end()
+    endif
+    call vundle#end()
 endif
 
 " DoxygenToolkit configure
@@ -45,6 +50,11 @@ endif
 " lightline configure
 if filereadable($HOME . "/.vim/MyVinrc/lightline_config.vim")
     source $HOME/.vim/MyVinrc/lightline_config.vim
+endif
+
+" code_complete configure
+if filereadable($HOME . "/.vim/MyVinrc/code_complete_config.vim")
+    source $HOME/.vim/MyVinrc/code_complete_config.vim
 endif
 
 " Expand
@@ -86,6 +96,8 @@ set foldmethod=manual
 " set foldcolumn=4
 set cmdheight=2
 
+" apearance configure
+colorscheme molokai
 set t_Co=256
 
 set tabstop=4	" Number of spaces that a <Tab> in the file counts for.
@@ -122,3 +134,4 @@ endif
 " set file encoding
 set fileencodings=gbk,utf-8,ucs-bom,gb18030,gb2312,cp936
 set fenc=gbk
+
