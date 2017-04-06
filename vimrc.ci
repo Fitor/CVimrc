@@ -57,6 +57,11 @@ if filereadable($HOME . "/.vim/MyVinrc/code_complete_config.vim")
     source $HOME/.vim/MyVinrc/code_complete_config.vim
 endif
 
+" rainbow_parentheses configure
+if filereadable($HOME . "/.vim/MyVinrc/rainbow_parentheses_config.vim")
+    source $HOME/.vim/MyVinrc/rainbow_parentheses_config.vim
+endif
+
 " Expand
 if isdirectory($HOME . "/.vim/MyVinrc")
     if filereadable($HOME . "/.vim/MyVinrc/quick_comment.vim")

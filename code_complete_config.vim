@@ -3,7 +3,7 @@
 " FILE:     code_complete.vim
 " ROLE:     TODO (some explanation)
 " CREATED:  2017-03-31 23:27:24
-" MODIFIED: 2017-04-06 01:33:18
+" MODIFIED: 2017-04-06 08:29:45
 
 if exists("did_code_complete_config")
     finish
