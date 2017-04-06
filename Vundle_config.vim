@@ -23,6 +23,7 @@ Plugin 'godlygeek/tabular'
 " Plugin 'Lokaltog/vim-powerline'
 Plugin 'mbbill/code_complete'
 Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
