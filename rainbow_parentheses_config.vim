@@ -3,7 +3,7 @@
 " FILE:     rainbow_parentheses_config.vim
 " ROLE:     TODO (some explanation)
 " CREATED:  2017-03-31 23:27:24
-" MODIFIED: 2017-04-06 08:48:20
+" MODIFIED: 2017-04-06 09:19:25
 
 if exists("did_rainbow_parentheses_config")
     finish
@@ -32,9 +32,8 @@ let g:rbpt_colorpairs = [
 let g:rbpt_max = 16
 let g:rbpt_loadcmd_toggle = 0
 
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
+au VimEnter * RainbowParenthesesToggleAll
+au Syntax * RainbowParenthesesActive
 " au Syntax * RainbowParenthesesLoadBraces
-au VimEnter * RainbowParenthesesLoadBraces
-
+" au Syntax * RainbowParenthesesLoadRound
+" au Syntax * RainbowParenthesesLoadSquare
