@@ -140,3 +140,5 @@ endif
 set fileencodings=gbk,utf-8,ucs-bom,gb18030,gb2312,cp936
 set fenc=gbk
 
+let g:configure_last=1
+
