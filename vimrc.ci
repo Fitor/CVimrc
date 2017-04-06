@@ -120,5 +120,5 @@ if &t_Co > 2 || has("gui_running")
 endif
 
 " set file encoding
-set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+set fileencodings=gbk,utf-8,ucs-bom,gb18030,gb2312,cp936
 set fenc=gbk
