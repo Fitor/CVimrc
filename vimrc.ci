@@ -38,28 +38,36 @@ if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
 endif
 
 " DoxygenToolkit configure
-if filereadable($HOME . "/.vim/MyVinrc/DoxygenToolkit_config.vim")
-    source $HOME/.vim/MyVinrc/DoxygenToolkit_config.vim
+if isdirectory($HOME . "/.vim/bundle/DoxygenToolkit.vim")
+    if filereadable($HOME . "/.vim/MyVinrc/DoxygenToolkit_config.vim")
+        source $HOME/.vim/MyVinrc/DoxygenToolkit_config.vim
+    endif
 endif
 
 " Powerline configure
-if filereadable($HOME . "/.vim/MyVinrc/powerline_config.vim")
-    source $HOME/.vim/MyVinrc/powerline_config.vim
-endif
+" if filereadable($HOME . "/.vim/MyVinrc/powerline_config.vim")
+"     source $HOME/.vim/MyVinrc/powerline_config.vim
+" endif
 
 " lightline configure
-if filereadable($HOME . "/.vim/MyVinrc/lightline_config.vim")
-    source $HOME/.vim/MyVinrc/lightline_config.vim
+if isdirectory($HOME . "/.vim/bundle/lightline.vim")
+    if filereadable($HOME . "/.vim/MyVinrc/lightline_config.vim")
+        source $HOME/.vim/MyVinrc/lightline_config.vim
+    endif
 endif
 
 " code_complete configure
-if filereadable($HOME . "/.vim/MyVinrc/code_complete_config.vim")
-    source $HOME/.vim/MyVinrc/code_complete_config.vim
+if isdirectory($HOME . "/.vim/bundle/code_complete")
+    if filereadable($HOME . "/.vim/MyVinrc/code_complete_config.vim")
+        source $HOME/.vim/MyVinrc/code_complete_config.vim
+    endif
 endif
 
 " rainbow_parentheses configure
-if filereadable($HOME . "/.vim/MyVinrc/rainbow_parentheses_config.vim")
-    source $HOME/.vim/MyVinrc/rainbow_parentheses_config.vim
+if isdirectory($HOME . "/.vim/bundle/rainbow_parentheses.vim")
+    if filereadable($HOME . "/.vim/MyVinrc/rainbow_parentheses_config.vim")
+        source $HOME/.vim/MyVinrc/rainbow_parentheses_config.vim
+    endif
 endif
 
 " Expand
