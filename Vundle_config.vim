@@ -25,6 +25,8 @@ Plugin 'mbbill/code_complete'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 
+Plugin 'itchyny/calendar.vim' " A calendar application for Vim
+
 let &cpo = s:save_cpo
 unlet s:save_cpo
 
