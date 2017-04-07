@@ -77,6 +77,13 @@ if isdirectory($HOME . "/.vim/bundle/nerdtree")
     endif
 endif
 
+" calendar configure
+if isdirectory($HOME . "/.vim/bundle/calendar.vim")
+    if filereadable($HOME . "/.vim/MyVinrc/calendar_config.vim")
+        source $HOME/.vim/MyVinrc/calendar_config.vim
+    endif
+endif
+
 " Expand
 if isdirectory($HOME . "/.vim/MyVinrc")
     if filereadable($HOME . "/.vim/MyVinrc/quick_comment.vim")
