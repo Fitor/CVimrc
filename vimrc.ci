@@ -70,6 +70,13 @@ if isdirectory($HOME . "/.vim/bundle/rainbow_parentheses.vim")
     endif
 endif
 
+" nerdtree configure
+if isdirectory($HOME . "/.vim/bundle/nerdtree")
+    if filereadable($HOME . "/.vim/MyVinrc/nerdtree_config.vim")
+        source $HOME/.vim/MyVinrc/nerdtree_config.vim
+    endif
+endif
+
 " Expand
 if isdirectory($HOME . "/.vim/MyVinrc")
     if filereadable($HOME . "/.vim/MyVinrc/quick_comment.vim")
