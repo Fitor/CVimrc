@@ -19,6 +19,7 @@ Plugin 'dbext.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'itchyny/lightline.vim'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'tdcdev/ycm_simple_conf' " YouCompleteMe Simple Configuration
 Plugin 'godlygeek/tabular'
 " Plugin 'Lokaltog/vim-powerline'
 Plugin 'mbbill/code_complete'

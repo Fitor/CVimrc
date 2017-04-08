@@ -1,0 +1,8 @@
+<project type="c">
+    <include path="/home/local/libA/include"/>
+    <include path="/home/local/libB/include"/>
+    <include path="include"/>
+    <include path="build"/>
+    <define name="PREPROCESSOR_DIRECTIVE_EXAMPLE_1"/>
+    <define name="PREPROCESSOR_DIRECTIVE_EXAMPLE_2"/>
+</project>
