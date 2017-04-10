@@ -104,9 +104,9 @@ set backspace=indent,eol,start
 
 filetype plugin indent on      " Automatically detect file types.
 
-" setlocal noswapfile
-" set nobackup    " do not keep a backup file, use versions instead
-" set backup    " keep a backup file (restore to previoius version)
+setlocal noswapfile
+" set nobackup   " do not keep a backup file, use versions instead
+set backup     " keep a backup file (restore to previoius version)
 " set undofile  " keep an undo file (undo changes after closing)
 
 set history=50  " keep 50 lines of command line history
