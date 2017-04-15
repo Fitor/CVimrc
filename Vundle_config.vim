@@ -28,6 +28,10 @@ Plugin 'ctrlpvim/ctrlp.vim'
 
 Plugin 'itchyny/calendar.vim' " A calendar application for Vim
 
+Plugin 'tpope/vim-fugitive' " A Git wrapper so awesome.
+
+Plugin 'junegunn/goyo.vim' " Distraction-free writing in Vim.
+
 let &cpo = s:save_cpo
 unlet s:save_cpo
 
