@@ -84,6 +84,13 @@ if isdirectory($HOME . "/.vim/bundle/calendar.vim")
     endif
 endif
 
+" goyo configure
+if isdirectory($HOME . "/.vim/bundle/goyo.vim")
+    if filereadable($HOME . "/.vim/MyVinrc/goyo_config.vim")
+        source $HOME/.vim/MyVinrc/goyo_config.vim
+    endif
+endif
+
 " Expand
 if isdirectory($HOME . "/.vim/MyVinrc")
     if filereadable($HOME . "/.vim/MyVinrc/quick_comment.vim")
