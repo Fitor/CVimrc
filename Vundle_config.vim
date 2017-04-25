@@ -28,6 +28,7 @@ Plugin 'mbbill/code_complete'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'a.vim' "Alternate Files quickly.(.c --> .h etc)
+Plugin 'mycomment' " quickly toggle comment without thingking
 Plugin 'itchyny/calendar.vim' " A calendar application for Vim
 Plugin 'tpope/vim-fugitive' " A Git wrapper so awesome.
 Plugin 'junegunn/goyo.vim' " Distraction-free writing in Vim.
