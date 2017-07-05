@@ -27,6 +27,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'mbbill/code_complete'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'a.vim' "Alternate Files quickly.(.c --> .h etc)
 Plugin 'mycomment' " quickly toggle comment without thingking
 Plugin 'itchyny/calendar.vim' " A calendar application for Vim

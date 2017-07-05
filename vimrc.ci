@@ -70,6 +70,20 @@ if isdirectory($HOME . "/.vim/bundle/rainbow_parentheses.vim")
     endif
 endif
 
+" ctrlp configure
+if isdirectory($HOME . "/.vim/bundle/ctrlp.vim")
+    if filereadable($HOME . "/.vim/MyVinrc/ctrlp_config.vim")
+        source $HOME/.vim/MyVinrc/ctrlp_config.vim
+    endif
+endif
+
+" ctrlp-funky configure
+if isdirectory($HOME . "/.vim/bundle/ctrlp-funky")
+    if filereadable($HOME . "/.vim/MyVinrc/ctrlp_funky_config.vim")
+        source $HOME/.vim/MyVinrc/ctrlp_funky_config.vim
+    endif
+endif
+
 " nerdtree configure
 if isdirectory($HOME . "/.vim/bundle/nerdtree")
     if filereadable($HOME . "/.vim/MyVinrc/nerdtree_config.vim")
