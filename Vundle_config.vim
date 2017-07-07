@@ -35,6 +35,7 @@ Plugin 'tpope/vim-fugitive' " A Git wrapper so awesome.
 Plugin 'junegunn/goyo.vim' " Distraction-free writing in Vim.
 Plugin 'easymotion/vim-easymotion' " Vim motions on speed!
 Plugin 'vimwiki/vimwiki' " Personal Wiki for Vim
+Plugin 'argtextobj.vim' " Text-object like motion for arguments
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
