@@ -38,6 +38,8 @@ Plugin 'vimwiki/vimwiki' " Personal Wiki for Vim
 Plugin 'kana/vim-textobj-user' " Create your own text objects
 Plugin 'kana/vim-textobj-function' " Text objects for functions
 Plugin 'argtextobj.vim' " Text-object like motion for arguments
+Plugin 'terryma/vim-multiple-cursors' " True Sublime Text style multiple selections for Vim
+Plugin 'tpope/vim-surround' " quoting/parenthesizing made simple
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
