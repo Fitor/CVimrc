@@ -40,6 +40,8 @@ Plugin 'kana/vim-textobj-function' " Text objects for functions
 Plugin 'argtextobj.vim' " Text-object like motion for arguments
 Plugin 'terryma/vim-multiple-cursors' " True Sublime Text style multiple selections for Vim
 Plugin 'tpope/vim-surround' " quoting/parenthesizing made simple
+Plugin 'lfv89/vim-interestingwords' " vim-interestingwords allows you to highlight and navigate 
+                                    " through (multiple) different words in a buffer.
 
 let &cpo = s:save_cpo
 unlet s:save_cpo

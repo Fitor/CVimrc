@@ -105,10 +105,17 @@ if isdirectory($HOME . "/.vim/bundle/goyo.vim")
     endif
 endif
 
-" easy motion
+" easy motion configure
 if isdirectory($HOME . "/.vim/bundle/vim-easymotion")
     if filereadable($HOME . "/.vim/MyVinrc/easy_motion_config.vim")
         source $HOME/.vim/MyVinrc/easy_motion_config.vim
+    endif
+endif
+
+" interestingwords configure
+if isdirectory($HOME . "/.vim/bundle/vim-interestingwords")
+    if filereadable($HOME . "/.vim/MyVinrc/interestingwords_config.vim")
+        source $HOME/.vim/MyVinrc/interestingwords_config.vim
     endif
 endif
 
