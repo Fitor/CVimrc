@@ -42,6 +42,7 @@ Plugin 'terryma/vim-multiple-cursors' " True Sublime Text style multiple selecti
 Plugin 'tpope/vim-surround' " quoting/parenthesizing made simple
 Plugin 'lfv89/vim-interestingwords' " vim-interestingwords allows you to highlight and navigate 
                                     " through (multiple) different words in a buffer.
+Plugin 'bsdelf/bufferhint' " a handly buffer switcher for vim.
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
