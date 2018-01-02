@@ -140,6 +140,13 @@ if isdirectory($HOME . "/.vim/MyVinrc")
     endif
 endif
 
+" cscope configure
+if isdirectory($HOME . "/.vim/MyVinrc")
+    if filereadable($HOME . "/.vim/MyVinrc/cscope_config.vim")
+        source $HOME/.vim/MyVinrc/cscope_config.vim
+    endif
+endif
+
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid or when inside an event handler
 " (happens when dropping a file on gvim).
