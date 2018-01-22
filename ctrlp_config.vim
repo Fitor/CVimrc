@@ -3,7 +3,7 @@
 " FILE:     ctrlp_config.vim
 " ROLE:     TODO (some explanation)
 " CREATED:  2017-03-31 23:27:24
-" MODIFIED: 2017-07-05 08:47:19
+" MODIFIED: 2018-01-22 16:15:55
 
 if exists("did_ctrlp_config")
     finish
@@ -23,3 +23,5 @@ let g:ctrlp_max_height=15
 let g:ctrlp_match_window_reversed=0
 let g:ctrlp_mruf_max=500
 let g:ctrlp_follow_symlinks=1
+let g:ctrlp_max_depth=50
+let g:ctrlp_max_files=100000
