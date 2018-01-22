@@ -23,6 +23,11 @@ if isdirectory($HOME . "/.vim/MyVinrc/CI.vim")
     set runtimepath+=$HOME/.vim/MyVinrc/CI.vim
 endif
 
+" map
+if filereadable($HOME . "/.vim/MyVinrc/map.vim")
+    source $HOME/.vim/MyVinrc/map.vim
+endif
+
 " Vundle
 if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
     filetype off
