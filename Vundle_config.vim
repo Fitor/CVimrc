@@ -44,6 +44,7 @@ Plugin 'tpope/vim-surround' " quoting/parenthesizing made simple
                                     " through (multiple) different words in a buffer.
 Plugin 'bsdelf/bufferhint' " a handly buffer switcher for vim.
 Plugin 'mbriggs/mark.vim' " Hightlight serveral words in different simultaneously.
+Plugin 'kien/tabman.vim'  " Tab management for Vim
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
