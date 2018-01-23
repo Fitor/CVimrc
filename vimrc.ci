@@ -184,6 +184,7 @@ set number
 set relativenumber
 set numberwidth=5
 set cursorline
+set cursorcolumn
 set foldenable
 set foldmethod=manual
 " set foldcolumn=4
