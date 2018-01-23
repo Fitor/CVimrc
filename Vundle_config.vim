@@ -24,7 +24,7 @@ Plugin 'tdcdev/ycm_simple_conf' " YouCompleteMe Simple Configuration
 endif
 Plugin 'godlygeek/tabular'
 " Plugin 'Lokaltog/vim-powerline'
-Plugin 'mbbill/code_complete'
+" Plugin 'mbbill/code_complete'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tacahiroy/ctrlp-funky'
