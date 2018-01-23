@@ -51,6 +51,7 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'garbas/vim-snipmate' " snipMate.vim aims to be a concise vim script that implements some TextMate's snippets features in Vim.
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'mhinz/vim-startify' " The fancy start screen for vim.
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
