@@ -28,6 +28,11 @@ if filereadable($HOME . "/.vim/MyVinrc/map.vim")
     source $HOME/.vim/MyVinrc/map.vim
 endif
 
+" syntax
+if filereadable($HOME . "/.vim/MyVinrc/syntax.vim")
+    source $HOME/.vim/MyVinrc/syntax.vim
+endif
+
 " Vundle
 if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
     filetype off
