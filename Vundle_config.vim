@@ -46,6 +46,9 @@ Plugin 'bsdelf/bufferhint' " a handly buffer switcher for vim.
 Plugin 'mbriggs/mark.vim' " Hightlight serveral words in different simultaneously.
 Plugin 'kien/tabman.vim'  " Tab management for Vim
 Plugin 'vim-scripts/taglist.vim' " Source code browser
+Plugin 'tomtom/tlib_vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'garbas/vim-snipmate' " snipMate.vim aims to be a concise vim script that implements some TextMate's snippets features in Vim.
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
