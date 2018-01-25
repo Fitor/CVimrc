@@ -48,11 +48,12 @@ Plugin 'kien/tabman.vim'  " Tab management for Vim
 if executable('exuberant-ctags') || executable('exctags') || executable('ctags') || executable('ctags.exe') || executable('tags')
     Plugin 'vim-scripts/taglist.vim' " Source code browser
 endif
-Plugin 'tomtom/tlib_vim'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'garbas/vim-snipmate' " snipMate.vim aims to be a concise vim script that implements some TextMate's snippets features in Vim.
 if has("python3") || has("python")
     Plugin 'SirVer/ultisnips'
+else
+    Plugin 'tomtom/tlib_vim'
+    Plugin 'MarcWeber/vim-addon-mw-utils'
+    Plugin 'garbas/vim-snipmate' " snipMate.vim aims to be a concise vim script that implements some TextMate's snippets features in Vim.
 endif
 Plugin 'honza/vim-snippets'
 Plugin 'mhinz/vim-startify' " The fancy start screen for vim.
