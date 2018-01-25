@@ -45,11 +45,15 @@ Plugin 'tpope/vim-surround' " quoting/parenthesizing made simple
 Plugin 'bsdelf/bufferhint' " a handly buffer switcher for vim.
 Plugin 'mbriggs/mark.vim' " Hightlight serveral words in different simultaneously.
 Plugin 'kien/tabman.vim'  " Tab management for Vim
-Plugin 'vim-scripts/taglist.vim' " Source code browser
+if executable('exuberant-ctags') || executable('exctags') || executable('ctags') || executable('ctags.exe') || executable('tags')
+    Plugin 'vim-scripts/taglist.vim' " Source code browser
+endif
 Plugin 'tomtom/tlib_vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'garbas/vim-snipmate' " snipMate.vim aims to be a concise vim script that implements some TextMate's snippets features in Vim.
-Plugin 'SirVer/ultisnips'
+if has("python3") || has("python")
+    Plugin 'SirVer/ultisnips'
+endif
 Plugin 'honza/vim-snippets'
 Plugin 'mhinz/vim-startify' " The fancy start screen for vim.
 Plugin 'Auto-Pairs' " Insert or delete brackets, parens, quotes in pair.
