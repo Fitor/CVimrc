@@ -60,6 +60,7 @@ Plugin 'mhinz/vim-startify' " The fancy start screen for vim.
 Plugin 'Auto-Pairs' " Insert or delete brackets, parens, quotes in pair.
 Plugin 'grep.vim' " Grep search tools intefration with vim.
 Plugin 'jeffkreeftmeijer/vim-numbertoggle' " Toggles between hybrid and absolute line numbers automatically
+Plugin 'wesq3/vim-windowswap' " Swap your windows without ruining your layout.
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
