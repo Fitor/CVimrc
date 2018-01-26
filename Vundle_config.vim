@@ -61,6 +61,7 @@ Plugin 'Auto-Pairs' " Insert or delete brackets, parens, quotes in pair.
 Plugin 'grep.vim' " Grep search tools intefration with vim.
 Plugin 'jeffkreeftmeijer/vim-numbertoggle' " Toggles between hybrid and absolute line numbers automatically
 Plugin 'wesq3/vim-windowswap' " Swap your windows without ruining your layout.
+Plugin 'vim-scripts/DrawIt' " Ascii drawing plugin: lines, ellipses, arrows, fills, and more!
 
 let &cpo = s:save_cpo
 unlet s:save_cpo

@@ -47,115 +47,18 @@ if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
     call vundle#end()
 endif
 
-" DoxygenToolkit configure
-if isdirectory($HOME . "/.vim/bundle/DoxygenToolkit.vim")
-    if filereadable($HOME . "/.vim/MyVinrc/DoxygenToolkit_config.vim")
-        source $HOME/.vim/MyVinrc/DoxygenToolkit_config.vim
-    endif
-endif
+" MyVinrc_path
+let MyVinrc_path = $HOME . "/.vim/MyVinrc"
 
-" Powerline configure
-" if filereadable($HOME . "/.vim/MyVinrc/powerline_config.vim")
-"     source $HOME/.vim/MyVinrc/powerline_config.vim
-" endif
+" configure files
+let cfg_files = split(globpath(MyVinrc_path, "*.vim"), '\n')
 
-" lightline configure
-if isdirectory($HOME . "/.vim/bundle/lightline.vim")
-    if filereadable($HOME . "/.vim/MyVinrc/lightline_config.vim")
-        source $HOME/.vim/MyVinrc/lightline_config.vim
+" load configure files
+for f in cfg_files
+    if 0 != filereadable(f)
+        execute "source " . f
     endif
-endif
-
-" rainbow_parentheses configure
-if isdirectory($HOME . "/.vim/bundle/rainbow_parentheses.vim")
-    if filereadable($HOME . "/.vim/MyVinrc/rainbow_parentheses_config.vim")
-        source $HOME/.vim/MyVinrc/rainbow_parentheses_config.vim
-    endif
-endif
-
-" ctrlp configure
-if isdirectory($HOME . "/.vim/bundle/ctrlp.vim")
-    if filereadable($HOME . "/.vim/MyVinrc/ctrlp_config.vim")
-        source $HOME/.vim/MyVinrc/ctrlp_config.vim
-    endif
-endif
-
-" ctrlp-funky configure
-if isdirectory($HOME . "/.vim/bundle/ctrlp-funky")
-    if filereadable($HOME . "/.vim/MyVinrc/ctrlp_funky_config.vim")
-        source $HOME/.vim/MyVinrc/ctrlp_funky_config.vim
-    endif
-endif
-
-" nerdtree configure
-if isdirectory($HOME . "/.vim/bundle/nerdtree")
-    if filereadable($HOME . "/.vim/MyVinrc/nerdtree_config.vim")
-        source $HOME/.vim/MyVinrc/nerdtree_config.vim
-    endif
-endif
-
-" calendar configure
-if isdirectory($HOME . "/.vim/bundle/calendar.vim")
-    if filereadable($HOME . "/.vim/MyVinrc/calendar_config.vim")
-        source $HOME/.vim/MyVinrc/calendar_config.vim
-    endif
-endif
-
-" goyo configure
-if isdirectory($HOME . "/.vim/bundle/goyo.vim")
-    if filereadable($HOME . "/.vim/MyVinrc/goyo_config.vim")
-        source $HOME/.vim/MyVinrc/goyo_config.vim
-    endif
-endif
-
-" easy motion configure
-if isdirectory($HOME . "/.vim/bundle/vim-easymotion")
-    if filereadable($HOME . "/.vim/MyVinrc/easy_motion_config.vim")
-        source $HOME/.vim/MyVinrc/easy_motion_config.vim
-    endif
-endif
-
-" interestingwords configure
-if isdirectory($HOME . "/.vim/bundle/vim-interestingwords")
-    if filereadable($HOME . "/.vim/MyVinrc/interestingwords_config.vim")
-        source $HOME/.vim/MyVinrc/interestingwords_config.vim
-    endif
-endif
-
-" Expand
-if isdirectory($HOME . "/.vim/MyVinrc")
-    if filereadable($HOME . "/.vim/MyVinrc/quick_comment.vim")
-        source $HOME/.vim/MyVinrc/quick_comment.vim
-    endif
-endif
-
-" quickfix configure
-if isdirectory($HOME . "/.vim/MyVinrc")
-    if filereadable($HOME . "/.vim/MyVinrc/quickfix_config.vim")
-        source $HOME/.vim/MyVinrc/quickfix_config.vim
-    endif
-endif
-
-" bufferhint configure
-if isdirectory($HOME . "/.vim/MyVinrc")
-    if filereadable($HOME . "/.vim/MyVinrc/bufferhint_config.vim")
-        source $HOME/.vim/MyVinrc/bufferhint_config.vim
-    endif
-endif
-
-" snipmate configure
-if isdirectory($HOME . "/.vim/MyVinrc")
-    if filereadable($HOME . "/.vim/MyVinrc/snipmate_config.vim")
-        source $HOME/.vim/MyVinrc/snipmate_config.vim
-    endif
-endif
-
-" cscope configure
-if isdirectory($HOME . "/.vim/MyVinrc")
-    if filereadable($HOME . "/.vim/MyVinrc/cscope_config.vim")
-        source $HOME/.vim/MyVinrc/cscope_config.vim
-    endif
-endif
+endfor
 
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid or when inside an event handler
