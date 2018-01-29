@@ -3,7 +3,7 @@
 " FILE:     map.vim
 " ROLE:     TODO (some explanation)
 " CREATED:  2018-01-22 15:38:04
-" MODIFIED: 2018-01-26 14:54:15
+" MODIFIED: 2018-01-29 14:26:02
 
 if exists("g:map_config")
     if g:map_config == 2
@@ -25,6 +25,5 @@ endif
 if exists("g:configure_last")
     let g:map_config = 2
 
-    unmap <leader>pw
 endif
 

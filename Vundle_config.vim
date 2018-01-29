@@ -15,34 +15,18 @@ let s:save_cpo = &cpo
 
 Plugin 'DoxygenToolkit.vim'
 Plugin 'Fitor/header.vim'
-Plugin 'dbext.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'itchyny/lightline.vim'
-if has('python')
-" Plugin 'Valloric/YouCompleteMe'
-" Plugin 'tdcdev/ycm_simple_conf' " YouCompleteMe Simple Configuration
-endif
 Plugin 'godlygeek/tabular'
-" Plugin 'Lokaltog/vim-powerline'
-" Plugin 'mbbill/code_complete'
-Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'a.vim' "Alternate Files quickly.(.c --> .h etc)
 Plugin 'mycomment' " quickly toggle comment without thingking
-Plugin 'itchyny/calendar.vim' " A calendar application for Vim
 Plugin 'tpope/vim-fugitive' " A Git wrapper so awesome.
 Plugin 'junegunn/goyo.vim' " Distraction-free writing in Vim.
 Plugin 'easymotion/vim-easymotion' " Vim motions on speed!
 Plugin 'vimwiki/vimwiki' " Personal Wiki for Vim
-Plugin 'kana/vim-textobj-user' " Create your own text objects
-Plugin 'kana/vim-textobj-function' " Text objects for functions
-Plugin 'argtextobj.vim' " Text-object like motion for arguments
-Plugin 'terryma/vim-multiple-cursors' " True Sublime Text style multiple selections for Vim
 Plugin 'tpope/vim-surround' " quoting/parenthesizing made simple
-" Plugin 'lfv89/vim-interestingwords' " vim-interestingwords allows you to highlight and navigate 
-                                    " through (multiple) different words in a buffer.
-Plugin 'bsdelf/bufferhint' " a handly buffer switcher for vim.
 Plugin 'mbriggs/mark.vim' " Hightlight serveral words in different simultaneously.
 Plugin 'kien/tabman.vim'  " Tab management for Vim
 if executable('exuberant-ctags') || executable('exctags') || executable('ctags') || executable('ctags.exe') || executable('tags')
@@ -57,11 +41,7 @@ else
 endif
 Plugin 'honza/vim-snippets'
 Plugin 'mhinz/vim-startify' " The fancy start screen for vim.
-Plugin 'Auto-Pairs' " Insert or delete brackets, parens, quotes in pair.
-Plugin 'grep.vim' " Grep search tools intefration with vim.
 Plugin 'jeffkreeftmeijer/vim-numbertoggle' " Toggles between hybrid and absolute line numbers automatically
-Plugin 'wesq3/vim-windowswap' " Swap your windows without ruining your layout.
-Plugin 'vim-scripts/DrawIt' " Ascii drawing plugin: lines, ellipses, arrows, fills, and more!
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
