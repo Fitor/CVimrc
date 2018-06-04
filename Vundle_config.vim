@@ -42,6 +42,7 @@ endif
 Plugin 'honza/vim-snippets'
 Plugin 'mhinz/vim-startify' " The fancy start screen for vim.
 Plugin 'jeffkreeftmeijer/vim-numbertoggle' " Toggles between hybrid and absolute line numbers automatically
+Plugin 'posva/vim-vue' " vim syntax highlighting for Vue components'
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
