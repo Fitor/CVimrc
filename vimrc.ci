@@ -16,7 +16,7 @@
 set nocompatible
 
 " mapleader
-let mapleader = ";"
+let mapleader = " "
 
 " CI.vim
 if isdirectory($HOME . "/.vim/MyVinrc/CI.vim")
