@@ -29,6 +29,7 @@ Plugin 'vimwiki/vimwiki' " Personal Wiki for Vim
 Plugin 'tpope/vim-surround' " quoting/parenthesizing made simple
 Plugin 'mbriggs/mark.vim' " Hightlight serveral words in different simultaneously.
 Plugin 'kien/tabman.vim'  " Tab management for Vim
+Plugin 'chemzqm/wxapp.vim' " For wx miniprogram
 if executable('exuberant-ctags') || executable('exctags') || executable('ctags') || executable('ctags.exe') || executable('tags')
     Plugin 'vim-scripts/taglist.vim' " Source code browser
 endif
