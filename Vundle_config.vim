@@ -44,6 +44,7 @@ Plugin 'mhinz/vim-startify' " The fancy start screen for vim.
 Plugin 'jeffkreeftmeijer/vim-numbertoggle' " Toggles between hybrid and absolute line numbers automatically
 Plugin 'posva/vim-vue' " vim syntax highlighting for Vue components'
 Plugin 'DrawIt' "Ascii drawing plugin: lines, ellipses, arrows, fills, and more!
+Plugin 'Raimondi/delimitMate' " Provides insert mode auto-completin for quotes, parens, brackets, etc.
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
