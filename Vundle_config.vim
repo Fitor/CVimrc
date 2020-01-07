@@ -14,7 +14,7 @@ let s:save_cpo = &cpo
  set cpo&vim
 
 Plugin 'DoxygenToolkit.vim'
-Plugin 'Fitor/header.vim'
+Plugin 'git@ocol.top:Tools/Vim/VimScripts/Header.vim.git'
 Plugin 'scrooloose/nerdtree'
 Plugin 'itchyny/lightline.vim'
 Plugin 'godlygeek/tabular'
