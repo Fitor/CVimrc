@@ -1,6 +1,6 @@
 " Vim File
 " AUTHOR:   ci
-" FILE:     MyVinrc/DoxygenToolkit_config.vim
+" FILE:     CVimrc/DoxygenToolkit_config.vim
 " ROLE:     TODO (configure for DoxygenToolkit)
 " CREATED:  2017-03-25 01:12:03
 " MODIFIED: 2017-03-27 15:26:45

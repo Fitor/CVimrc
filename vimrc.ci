@@ -47,11 +47,11 @@ if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
     call vundle#end()
 endif
 
-" MyVinrc_path
-let MyVinrc_path = $HOME . "/.vim/CVimrc"
+" CVimrc
+let CVimrc_path = $HOME . "/.vim/CVimrc"
 
 " configure files
-let cfg_files = split(globpath(MyVinrc_path, "*.vim"), '\n')
+let cfg_files = split(globpath(CVimrc_path, "*.vim"), '\n')
 
 " load configure files
 for f in cfg_files
