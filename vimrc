@@ -1,1 +1,1 @@
-source $HOME/.vim/MyVinrc/vimrc.ci
+source $HOME/.vim/CVimrc/vimrc.ci

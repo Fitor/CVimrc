@@ -19,18 +19,18 @@ set nocompatible
 let mapleader = ";"
 
 " CI.vim
-if isdirectory($HOME . "/.vim/MyVinrc/CI.vim")
-    set runtimepath+=$HOME/.vim/MyVinrc/CI.vim
+if isdirectory($HOME . "/.vim/CVimrc/CI.vim")
+    set runtimepath+=$HOME/.vim/CVimrc/CI.vim
 endif
 
 " map
-if filereadable($HOME . "/.vim/MyVinrc/map.vim")
-    source $HOME/.vim/MyVinrc/map.vim
+if filereadable($HOME . "/.vim/CVimrc/map.vim")
+    source $HOME/.vim/CVimrc/map.vim
 endif
 
 " syntax
-if filereadable($HOME . "/.vim/MyVinrc/syntax.vim")
-    source $HOME/.vim/MyVinrc/syntax.vim
+if filereadable($HOME . "/.vim/CVimrc/syntax.vim")
+    source $HOME/.vim/CVimrc/syntax.vim
 endif
 
 " Vundle
@@ -39,16 +39,16 @@ if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
     set runtimepath+=$HOME/.vim/bundle/Vundle.vim
     call vundle#begin()
     Plugin 'VundleVim/Vundle.vim'
-    if isdirectory($HOME . "/.vim/MyVinrc")
-        if filereadable($HOME . "/.vim/MyVinrc/Vundle_config.vim")
-            source $HOME/.vim/MyVinrc/Vundle_config.vim
+    if isdirectory($HOME . "/.vim/CVimrc")
+        if filereadable($HOME . "/.vim/CVimrc/Vundle_config.vim")
+            source $HOME/.vim/CVimrc/Vundle_config.vim
         endif
     endif
     call vundle#end()
 endif
 
 " MyVinrc_path
-let MyVinrc_path = $HOME . "/.vim/MyVinrc"
+let MyVinrc_path = $HOME . "/.vim/CVimrc"
 
 " configure files
 let cfg_files = split(globpath(MyVinrc_path, "*.vim"), '\n')
