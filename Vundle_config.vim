@@ -46,6 +46,7 @@ Plugin 'jeffkreeftmeijer/vim-numbertoggle' " Toggles between hybrid and absolute
 Plugin 'posva/vim-vue' " vim syntax highlighting for Vue components'
 Plugin 'DrawIt' "Ascii drawing plugin: lines, ellipses, arrows, fills, and more!
 Plugin 'Raimondi/delimitMate' " Provides insert mode auto-completin for quotes, parens, brackets, etc.
+Plugin 'fatih/vim-go' " Go development plugin
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
