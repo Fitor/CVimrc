@@ -21,7 +21,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'a.vim' "Alternate Files quickly.(.c --> .h etc)
-Plugin 'mycomment' " quickly toggle comment without thingking
+Plugin 'preservim/nerdcommenter' " Commnet functions so powerful-no comment necessary.
 Plugin 'tpope/vim-fugitive' " A Git wrapper so awesome.
 Plugin 'junegunn/goyo.vim' " Distraction-free writing in Vim.
 Plugin 'easymotion/vim-easymotion' " Vim motions on speed!
