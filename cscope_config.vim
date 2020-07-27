@@ -11,7 +11,7 @@ endif
 let did_cscope_config = 1
 
 if has("cscope")
-    set csprg=/usr/bin/cscope
+    set csprg=cscope
     set csto=1
     set cst
     set nocsverb
