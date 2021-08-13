@@ -48,6 +48,9 @@ Plugin 'DrawIt' "Ascii drawing plugin: lines, ellipses, arrows, fills, and more!
 Plugin 'Raimondi/delimitMate' " Provides insert mode auto-completin for quotes, parens, brackets, etc.
 Plugin 'fatih/vim-go' " Go development plugin
 Plugin 'dense-analysis/ale' " Asynchronous Lint Engine
+if executable('clang-format')
+    Plugin 'rhysd/vim-clang-format' " This plugin formats your code with specific coding style using clang-format."
+endif
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
