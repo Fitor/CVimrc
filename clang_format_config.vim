@@ -12,6 +12,8 @@ let did_clang_format_config = 1
 
 let g:clang_format#auto_format = 1
 
+let g:clang_format#code_style = "WebKit"
+
 let g:clang_format#style_options = {
             \ "AccessModifierOffset" : -4,
             \ "AllowShortIfStatementsOnASingleLine" : "true",
