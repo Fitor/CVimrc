@@ -10,9 +10,6 @@ if exists("did_DoxygenToolkit_config")
 endif
 let did_DoxygenToolkit_config = 1
 
+let g:load_doxygen_syntax=1
+let g:DoxygenToolkit_commentType = "javadoc"
 let g:DoxygenToolkit_compactOneLineDoc="yes"
-let g:DoxygenToolkit_licenseTag="Free for U"
-let g:DoxygenToolkit_authorName="Ci Chen"
-" let g:DoxygenToolkit_blockHeader="-----------------------------------------------------------"
-" let g:DoxygenToolkit_blockFooter="-----------------------------------------------------------"
-
