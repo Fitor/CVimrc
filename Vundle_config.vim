@@ -17,7 +17,7 @@ Plugin 'DoxygenToolkit.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'othree/html5.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'itchyny/lightline.vim'
+Plugin 'itchyny/lightline.vim' "A light and configurable statusline/tabline plugin for Vim
 Plugin 'godlygeek/tabular'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tacahiroy/ctrlp-funky'

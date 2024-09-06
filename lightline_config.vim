@@ -19,11 +19,15 @@ let g:lightline = {
     \ },
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
-    \             [ 'readonly', 'filename', 'modified' ] ]
+    \             [ 'readonly', 'filename', 'modified' ],
+    \             [ 'codeium'] ]
     \ },
     \ 'component': {
     \   'readonly': '%{&filetype=="help"?"":&readonly?"x":""}',
     \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}'
+    \ },
+    \ 'component_function': {
+    \   'codeium': 'LightlineCodeiumStatus'
     \ },
     \ 'component_visible_condition': {
     \   'readonly': '(&filetype!="help"&& &readonly)',
@@ -33,3 +37,6 @@ let g:lightline = {
     \ 'subseparator': { 'left': '|', 'right': '|' }
     \ }
 
+function! LightlineCodeiumStatus()
+    return codeium#GetStatusString()
+endfunction
