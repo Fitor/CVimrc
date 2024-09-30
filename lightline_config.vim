@@ -38,5 +38,8 @@ let g:lightline = {
     \ }
 
 function! LightlineCodeiumStatus()
-    return codeium#GetStatusString()
+    if exists('g:loaded_codeium')
+        return codeium#GetStatusString()
+    endif
+    return ''
 endfunction
