@@ -5,6 +5,10 @@
 " CREATED:  2024-09-06 13:52:24
 " MODIFIED: 2024-09-06 13:52:24
 
+if !exists('g:loaded_codeium')
+    finish
+endif
+
 if exists("did_codeium_config")
     finish
 endif
