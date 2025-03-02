@@ -53,7 +53,22 @@ if executable('clang-format')
     Plugin 'rhysd/vim-clang-format' " This plugin formats your code with specific coding style using clang-format.
 endif
 Plugin 'mattn/calendar-vim' " calendar.vim creates a calenar window you cam use within vim.
-Plugin 'Exafunction/codeium.vim' " Free, ultrafast Copilot alternative for Vim and Neovim
+Plugin 'embear/vim-localvimrc'
+
+" ai assistant
+if exists('g:cv_ai_assistant_enable') && g:cv_ai_assistant_enable == v:true
+    if exists('g:cv_ai_assistant_plugin') == v:false
+        let g:cv_ai_assistant_plugin = 'codeium'
+    endif
+
+    if g:cv_ai_assistant_plugin == 'codeium'
+        Plugin 'Exafunction/codeium.vim' " Free, ultrafast Copilot alternative for Vim and Neovim
+    elseif g:cv_ai_assistant_plugin == 'vim-ollama'
+        Plugin 'gergap/vim-ollama' " This plugin adds Copilot-like code completion support to Vim.
+    elseif g:cv_ai_assistant_plugin == 'vim-ai'
+        Plugin 'madox2/vim-ai' " This plugin adds Artificial Intelligence (AI) capabilities to your Vim and Neovim.
+    endif
+endif
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
