@@ -15,6 +15,10 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+if filereadable($HOME . "/.vim/cvimrc_conf.vim")
+    source $HOME/.vim/cvimrc_conf.vim
+endif
+
 " mapleader
 let mapleader = ";"
 
@@ -55,7 +59,7 @@ for b in bundles
     endif
 
     let f = substitute(b.name, ".vim", "", "") . "_config.vim"
-    if 0 != filereadable(f)
+    if filereadable(f)
         execute "source " . f
     endif
 endfor
