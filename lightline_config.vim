@@ -19,8 +19,7 @@ let g:lightline = {
     \ },
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
-    \             [ 'readonly', 'filename', 'modified' ],
-    \             [ 'codeium'] ]
+    \             [ 'readonly', 'filename', 'modified' ], ]
     \ },
     \ 'component': {
     \   'readonly': '%{&filetype=="help"?"":&readonly?"x":""}',

@@ -46,19 +46,29 @@ if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
     endif
     call vundle#end()
 endif
+let bundles = g:vundle#bundles
 
-" CVimrc
-let CVimrc_path = $HOME . "/.vim/CVimrc"
+" load plugin configure files
+for b in bundles
+    if b.name == "Vundle.vim"
+        continue
+    endif
 
-" configure files
-let cfg_files = split(globpath(CVimrc_path, "*.vim"), '\n')
-
-" load configure files
-for f in cfg_files
+    let f = substitute(b.name, ".vim", "", "") . "_config.vim"
     if 0 != filereadable(f)
         execute "source " . f
     endif
 endfor
+
+" cscope
+if filereadable($HOME . "/.vim/CVimrc/cscope_config.vim")
+    source $HOME/.vim/CVimrc/cscope_config.vim
+endif
+
+" quickfix
+if filereadable($HOME . "/.vim/CVimrc/quickfix_config.vim")
+    source $HOME/.vim/CVimrc/quickfix_config.vim
+endif
 
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid or when inside an event handler

@@ -11,7 +11,12 @@ endif
 let g:did_ci_configure_last = 1
 
 " load configure files
-for f in cfg_files
+for b in bundles
+    if b.name == "Vundle.vim"
+        continue
+    endif
+
+    let f = substitute(b.name, ".vim", "", "") . "_config.vim"
     if 0 != filereadable(f)
         execute "source " . f
     endif

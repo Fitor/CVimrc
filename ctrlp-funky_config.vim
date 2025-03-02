@@ -1,6 +1,6 @@
 " Vim File
 " AUTHOR:   ci
-" FILE:     ctrlp_config.vim
+" FILE:     ctrlp-funky_config.vim
 " ROLE:     TODO (some explanation)
 " CREATED:  2017-03-31 23:27:24
 " MODIFIED: 2017-07-05 08:53:42

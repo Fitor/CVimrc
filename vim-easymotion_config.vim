@@ -1,6 +1,6 @@
 " Vim File
 " AUTHOR:   ci
-" FILE:     easy_motion_config.vim
+" FILE:     vim-easymotion_config.vim
 " ROLE:     TODO (some explanation)
 " CREATED:  2017-03-31 23:27:24
 " MODIFIED: 2017-07-05 23:18:13
