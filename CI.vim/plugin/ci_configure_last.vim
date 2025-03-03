@@ -16,7 +16,7 @@ for b in bundles
         continue
     endif
 
-    let f = substitute(b.name, ".vim", "", "") . "_config.vim"
+    let f = $HOME . "/.vim/CVimrc/" . substitute(b.name, ".vim", "", "") . "_config.vim"
     if 0 != filereadable(f)
         execute "source " . f
     endif
