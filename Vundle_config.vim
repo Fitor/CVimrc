@@ -53,6 +53,8 @@ if executable('clang-format')
     Plugin 'rhysd/vim-clang-format' " This plugin formats your code with specific coding style using clang-format.
 endif
 Plugin 'mattn/calendar-vim' " calendar.vim creates a calenar window you cam use within vim.
+Plugin 'junegunn/fzf' " Things you can do with fzf and Vim.
+Plugin 'junegunn/fzf.vim'
 Plugin 'embear/vim-localvimrc'
 
 " ai assistant
