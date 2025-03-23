@@ -20,9 +20,9 @@ let g:ctrlp_custom_ignore = {
             \ }
 
 if has('win32')
-    set wildignore+=*\\.git\\*,*\\.hg\\*,*\\.svn\\*  " Windows ('noshellslash')
+    set wildignore+=*\\.git\\*,*\\.hg\\*,*\\.svn\\* " Windows ('noshellslash')
 elseif has('unix')
-    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,**/*.swp,**/*~        " Linux/MacOSX
+    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,**/*.swp,**/*~ " Linux/MacOSX
 endif
 
 let g:ctrlp_working_path_mode=0

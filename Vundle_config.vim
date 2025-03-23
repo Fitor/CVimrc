@@ -11,26 +11,27 @@ endif
 let g:did_vundle_config = 1
 
 let s:save_cpo = &cpo
- set cpo&vim
+set cpo&vim
 
-Plugin 'DoxygenToolkit.vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'othree/html5.vim'
+Plugin 'mhinz/vim-startify' " The fancy start screen for vim.
 Plugin 'scrooloose/nerdtree'
 Plugin 'itchyny/lightline.vim' "A light and configurable statusline/tabline plugin for Vim
 Plugin 'godlygeek/tabular'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'tacahiroy/ctrlp-funky'
+Plugin 'kien/tabman.vim'  " Tab management for Vim
 Plugin 'a.vim' "Alternate Files quickly.(.c --> .h etc)
+Plugin 'DoxygenToolkit.vim'
 Plugin 'preservim/nerdcommenter' " Commnet functions so powerful-no comment necessary.
 Plugin 'tpope/vim-fugitive' " A Git wrapper so awesome.
 Plugin 'junegunn/goyo.vim' " Distraction-free writing in Vim.
 Plugin 'easymotion/vim-easymotion' " Vim motions on speed!
-Plugin 'vimwiki/vimwiki' " Personal Wiki for Vim
 Plugin 'tpope/vim-surround' " quoting/parenthesizing made simple
 Plugin 'mbriggs/mark.vim' " Hightlight serveral words in different simultaneously.
-Plugin 'kien/tabman.vim'  " Tab management for Vim
-Plugin 'chemzqm/wxapp.vim' " For wx miniprogram
+Plugin 'vimwiki/vimwiki' " Personal Wiki for Vim
+
+if exists('g:cv_calendar_enable') && g:cv_calendar_enable == v:true
+    Plugin 'mattn/calendar-vim' " calendar.vim creates a calenar window you cam use within vim.
+endif
+
 if executable('exuberant-ctags') || executable('exctags') || executable('ctags') || executable('ctags.exe') || executable('tags')
     Plugin 'vim-scripts/taglist.vim' " Source code browser
 endif
@@ -42,20 +43,41 @@ else
     Plugin 'garbas/vim-snipmate' " snipMate.vim aims to be a concise vim script that implements some TextMate's snippets features in Vim.
 endif
 Plugin 'honza/vim-snippets'
-Plugin 'mhinz/vim-startify' " The fancy start screen for vim.
 Plugin 'jeffkreeftmeijer/vim-numbertoggle' " Toggles between hybrid and absolute line numbers automatically
-Plugin 'posva/vim-vue' " vim syntax highlighting for Vue components'
-Plugin 'DrawIt' "Ascii drawing plugin: lines, ellipses, arrows, fills, and more!
-Plugin 'Raimondi/delimitMate' " Provides insert mode auto-completin for quotes, parens, brackets, etc.
-Plugin 'fatih/vim-go' " Go development plugin
-Plugin 'dense-analysis/ale' " Asynchronous Lint Engine
-if executable('clang-format')
-    Plugin 'rhysd/vim-clang-format' " This plugin formats your code with specific coding style using clang-format.
+if exists('g:cv_drawit_enable') && g:cv_drawit_enable == v:true
+    Plugin 'DrawIt' "Ascii drawing plugin: lines, ellipses, arrows, fills, and more!
 endif
-Plugin 'mattn/calendar-vim' " calendar.vim creates a calenar window you cam use within vim.
-Plugin 'junegunn/fzf' " Things you can do with fzf and Vim.
-Plugin 'junegunn/fzf.vim'
+Plugin 'Raimondi/delimitMate' " Provides insert mode auto-completin for quotes, parens, brackets, etc.
+if exists('g:cv_ale_enable') && g:cv_ale_enable == v:true
+    Plugin 'dense-analysis/ale' " Asynchronous Lint Engine
+endif
+if exists('g:cv_clang_format_enable') && g:cv_clang_format_enable == v:true
+    if executable('clang-format')
+        Plugin 'rhysd/vim-clang-format' " This plugin formats your code with specific coding style using clang-format.
+    else
+        echom 'command not found: clang-format'
+    endif
+endif
+
+if exists('g:cv_ctrlp_enable') && g:cv_ctrlp_enable == v:true
+    Plugin 'ctrlpvim/ctrlp.vim'
+    Plugin 'tacahiroy/ctrlp-funky'
+endif
+
+if exists('g:cv_fzf_enable') && g:cv_fzf_enable == v:true
+    Plugin 'junegunn/fzf' " Things you can do with fzf and Vim.
+    Plugin 'junegunn/fzf.vim'
+endif
 Plugin 'embear/vim-localvimrc'
+
+" code plugin
+Plugin 'pangloss/vim-javascript'
+Plugin 'othree/html5.vim'
+Plugin 'posva/vim-vue' " vim syntax highlighting for Vue components'
+Plugin 'fatih/vim-go' " Go development plugin
+if exists('g:cv_code_wxapp_enable') && g:cv_code_wxapp_enable == v:true
+    Plugin 'chemzqm/wxapp.vim' " For wx miniprogram
+endif
 
 " ai assistant
 if exists('g:cv_ai_assistant_enable') && g:cv_ai_assistant_enable == v:true
