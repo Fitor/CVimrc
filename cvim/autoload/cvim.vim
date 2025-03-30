@@ -98,3 +98,19 @@ fu! cvim#files()
     en
     call fzf#vim#files(l:dir, fzf#vim#with_preview())
 endf
+
+fu! cvim#grep()
+    let s:pattern = input('Input pattern:')
+
+    if strlen(s:pattern) <= 0
+        let s:pattern = getreg('/')
+    en
+
+    let l:rg_opts = " --column --line-number --no-heading --color=always --smart-case -- "
+
+    if exists('g:cvimroot')
+        call fzf#vim#grep("( cd " . shellescape(g:cvimroot) . " && rg " . l:rg_opts . shellescape(s:pattern) . " )", fzf#vim#with_preview())
+    else
+        call fzf#vim#grep("rg " . l:rg_opts . shellescape(s:pattern), fzf#vim#with_preview())
+    en
+endf
