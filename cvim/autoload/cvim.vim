@@ -89,3 +89,12 @@ fu! cvim#New()
     call filecopy(g:cvimrc . '/cvimrc.vim', g:cvimroot . '/.cvim/cvimrc.vim')
     exec 'new ' . g:cvimroot . '/.cvim/cvimrc.vim'
 endf
+
+fu! cvim#files()
+    if exists('g:cvimroot')
+        let l:dir = g:cvimroot
+    else
+        let l:dir = getcwd()
+    en
+    call fzf#vim#files(l:dir, fzf#vim#with_preview())
+endf
