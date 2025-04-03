@@ -88,3 +88,47 @@ endf
 fu! cvim#utils#findroot(curr, mark, maxdepth)
     return s:findroot(a:curr, a:mark, a:maxdepth)
 endf
+
+" pattern transform
+fu! s:checkChar(c)
+    for c in [ '(', ')', '{', '}', '|', '+', '?']
+        if a:c == c
+            return v:true
+        en
+    endfor
+
+    return v:false
+endf
+
+fu! s:magicPattern2Perl(s)
+    let i = 0
+    let l = strlen(a:s)
+    let a = []
+    while i < l:l
+        let c = a:s[i]
+        if s:checkChar(c) == v:true
+            call add(a, '\' . c)
+        elseif c == '\'
+            let i += 1
+            if i >= l
+                return
+            en
+            let c = a:s[i]
+            if s:checkChar(c) == v:true
+                call add(a, c)
+            else
+                call add(a, '\' . c)
+            en
+        else
+            call add(a, c)
+        en
+
+        let i += 1
+    endwhile
+
+    return join(a, '')
+endf
+
+fu! cvim#utils#magicPattern2Perl(str)
+    return s:magicPattern2Perl(a:str)
+endf

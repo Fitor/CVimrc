@@ -1,0 +1,17 @@
+# base
+--max-columns=150
+
+# exclude/include files/folders
+# --glob=!*.toml    for exclude
+# --glob=*.toml     for include
+--glob=*
+--glob=!.*
+--glob=!*~
+--glob=!*.sw?
+
+# type
+# >rg --type-list                   for show builtin type list
+# --type-add 'web:*.{html,css,js}'  for add type
+# --type rust  or   -trust          for use type
+# --type-not rust                   for not use type
+
