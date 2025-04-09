@@ -3,6 +3,7 @@ if exists('g:loaded_cvim') && g:loaded_cvim
 en
 let g:loaded_cvim = 1
 
+" init/new/edit
 fu! cvim#init()
     if filereadable(g:vimhome . '/cvimrc.vim')
         exec 'source ' . fnameescape(g:vimhome . '/cvimrc.vim')
@@ -92,6 +93,7 @@ fu! cvim#New()
     exec 'vsplit ' . g:cvimroot . '/.cvim/cvimrc.vim'
 endf
 
+" files
 fu! cvim#files()
     if exists('g:cvimroot')
         let dir = g:cvimroot
@@ -106,6 +108,7 @@ fu! cvim#curfiles()
     call fzf#vim#files(dir, fzf#vim#with_preview())
 endf
 
+" grep
 fu! cvim#grep()
     let pattern = input('Input pattern:')
 
@@ -137,4 +140,20 @@ fu! cvim#curgrep()
     let rg_opts = " --column --line-number --no-heading --color=always --smart-case -- "
 
     call fzf#vim#grep("rg " . rg_opts . shellescape(pattern), fzf#vim#with_preview())
+endf
+
+" putty path
+fu! cvim#puttypath(path)
+    if !exists('g:cv_putty_path')
+        return path
+    en
+
+    for [k, p] in items(g:cv_putty_path)
+        let p = substitute(a:path, k, p, '')
+        if p != a:path
+            return p
+        en
+    endfor
+
+    return path
 endf

@@ -6,7 +6,7 @@
 " let g:cv_ctrlp_enable = v:true
 
 " fzf
-" let g:cv_fzf_enable = v:true
+let g:cv_fzf_enable = v:true
 
 " ale
 " let g:cv_ale_enable = v:true
@@ -22,3 +22,12 @@
 
 " code plugins
 " let g:cv_code_wxapp_enable = v:true
+
+" cvim
+" putty path
+let s:homepath = $HOME
+let s:workpath = $HOME . '/work'
+let g:cv_putty_path = {
+            \   s:workpath: '[WORK]',
+            \   s:homepath: '~'
+            \   }
