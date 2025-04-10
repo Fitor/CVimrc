@@ -31,10 +31,10 @@ let g:lightline.active = {
 
 let g:lightline.tabline = {
     \       'left': [
-    \           [ 'cvim', 'tabs' ]
+    \           [ 'tabs' ]
     \       ],
     \       'right': [
-    \           [ 'close' ]
+    \           [ 'close', 'cvim' ]
     \       ]
     \   }
 
