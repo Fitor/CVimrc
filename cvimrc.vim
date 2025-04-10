@@ -30,5 +30,5 @@
 " let g:cv_putty_path = {
 "           \   s:homepath: '~',
 "           \   s:tmppath: '[TMP]',
-"           \   '\/path\/to\/proj\>: '[PROJ]',
+"           \   '\/path\/to\/proj\>': '[PROJ]',
 "           \   }
