@@ -13,7 +13,7 @@ let did_lightline_config = 1
 set laststatus=2
 
 let g:lightline = {
-    \       'colorscheme': 'landscape',
+    \       'colorscheme': 'cvim',
     \       'mode_map': {
     \           'c': 'SEARCH'
     \       },
@@ -55,7 +55,7 @@ let g:lightline.component_expand = {
     \   }
 
 let g:lightline.component_type = {
-    \       'cvim': 'error'
+    \       'cvim': 'cvim'
     \   }
 
 let g:lightline.component_visible_condition = {
@@ -78,3 +78,5 @@ function! LightlineCvimStatus()
     endif
     return ''
 endfunction
+
+" TODO see amazing lightline-examples
