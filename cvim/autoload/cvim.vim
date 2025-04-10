@@ -145,15 +145,23 @@ endf
 " putty path
 fu! cvim#puttypath(path)
     if !exists('g:cv_putty_path')
-        return path
+        return a:path
     en
 
-    for [k, p] in items(g:cv_putty_path)
-        let p = substitute(a:path, k, p, '')
-        if p != a:path
-            return p
+    let ml = 0
+
+    for [k, v] in items(g:cv_putty_path)
+        let p = substitute(a:path, k, v, '')
+        if p == a:path
+            continue
+        en
+
+        let l = len(k)
+        if l > ml
+            let ml = l
+            let r = p
         en
     endfor
 
-    return path
+    return exists('r') ? r : a:path
 endf

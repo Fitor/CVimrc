@@ -74,7 +74,7 @@ endfunction
 
 function! LightlineCvimStatus()
     if exists('g:cvimroot')
-        return 'CVim[' . cvim#puttypath(g:cvimroot) . ']'
+        return cvim#puttypath(g:cvimroot)
     endif
     return ''
 endfunction
