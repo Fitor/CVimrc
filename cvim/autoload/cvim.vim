@@ -28,7 +28,7 @@ fu! cvim#init()
     en
 endf
 
-fu! cvim#EditGlobal()
+fu! s:edit_global_cvimrc()
     if filereadable(g:vimhome . '/cvimrc.vim')
         exec 'new ' . g:vimhome . '/cvimrc.vim'
     else
@@ -42,28 +42,53 @@ fu! cvim#EditGlobal()
     en
 endf
 
-fu! cvim#Edit()
+fu! s:edit_local(f)
     if !exists('g:cvimroot')
         echom 'Cvim root .cvim not found. Please run :CVNew first.'
         retu
     en
 
-    if !isdirectory(g:cvimroot . '/.cvim')
-        echom 'Path [' . g:cvimroot . '/.cvim] not a directory. Please remove it and run :CVNew.'
-        retu
-    en
-
-    if filereadable(g:cvimroot . '/.cvim/cvimrc.vim')
-        exec 'new ' . g:cvimroot . '/.cvim/cvimrc.vim'
+    if filereadable(g:cvimroot.'/.cvim/'.a:f)
+        exec 'new '.g:cvimroot.'/.cvim/'.a:f
     else
-        let confirm = input('Config file [' . g:cvimroot . "/.cvim/cvimrc.vim] not found.\n"
-                    \ . 'Would you like to create new one? (y/n):') ==? 'y'
+        let confirm = input('Config file ['.g:cvimroot.'/.cvim/'.a:f."] not found.\n"
+                    \.'Would you like to create new one? (y/n):') ==? 'y'
         if !confirm
             retu
         en
-        call filecopy(g:cvimrc . '/cvimrc.vim', g:cvimroot . '/.cvim/cvimrc.vim')
-        exec 'new ' . g:cvimroot . '/.cvim/cvimrc.vim'
+        call filecopy(g:cvimrc.'/'.a:f, g:cvimroot.'/.cvim/'.a:f)
+        exec 'new '.g:cvimroot.'/.cvim/'.a:f
     en
+endf
+
+fu! s:open_template(f)
+    exec 'new +setlocal\ nomodifiable|setlocal\ readonly '
+                \.g:cvimrc.'/'.a:f
+endf
+
+fu! cvim#Edit(...)
+    for c in a:000
+        if c == 'global'
+            call s:edit_global_cvimrc()
+        elseif c == 'local'
+            call s:edit_local('cvimrc.vim')
+        elseif c == 'cvimrc-template'
+            call s:open_template('cvimrc.vim')
+        elseif c == 'rg'
+            call s:edit_local('rgconf')
+        elseif c == 'rgconf-template'
+            call s:open_template('rgconf')
+        else
+            echom 'Unkown type [' . c . ']...'
+            retu
+        en
+    endfor
+
+    if a:0
+        return
+    en
+
+    call s:edit_local('cvimrc.vim')
 endf
 
 fu! cvim#New()

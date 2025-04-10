@@ -1,6 +1,8 @@
 command! CVNew call cvim#New()
-command! CVEdit call cvim#Edit()
-command! CVEditGlobal call cvim#EditGlobal()
+command! -complete=custom,s:ListEditTypes -nargs=* CVEdit call cvim#Edit(<f-args>)
+fun s:ListEditTypes(A,L,P)
+    return "local\nglobal\nrg\ncvimrc-template\nrgconf-template\n"
+endfun
 
 nmap <silent> <leader>fg :call cvim#files()<CR>
 nmap <silent> <leader>ff :call cvim#curfiles()<CR>
