@@ -3,6 +3,17 @@ if exists("g:did_startify_config")
 endif
 let g:did_startify_config = 1
 
+let g:startify_lists = [
+            \ { 'type': 'sessions',  'header': ['   Sessions']       },
+            \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+            \ { 'type': 'files',     'header': ['   MRU']            },
+            \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
+            \ { 'type': 'commands',  'header': ['   Commands']       },
+            \ ]
+if exists('g:cvimroot')
+    let g:startify_session_dir = g:cvimroot.'/.cvim/session'
+endif
+
 function! s:read_bookmarks()
     if exists('g:startify_bookmark_loading')
         return
