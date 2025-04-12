@@ -45,7 +45,12 @@ endfunction
 
 " cwd
 function! lightline#stl#cwd()
-    return cvim#puttypath(getcwd())
+    if exists('g:cvimroot')
+        let p = cvim#utils#relpath(getcwd(), g:cvimroot)
+        return cvim#puttypath(p)
+    else
+        return cvim#puttypath(getcwd())
+    endif
 endfunction
 
 " fugitive
