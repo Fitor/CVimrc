@@ -4,5 +4,6 @@ endif
 let g:map_config = 1
 
 " tabpage
-nmap ;tn  :tabnew<CR>
-nmap ;tc  :tabc<CR>
+nmap <leader>tt  :TMToggle<CR>
+nmap <leader>tn  :tabnew<CR>
+nmap <leader>tc  :tabc<CR>
