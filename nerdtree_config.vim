@@ -8,6 +8,7 @@ autocmd bufenter * if (winnr("$") ==1 && exists("b:NERDTree") && b:NERDTree.isTa
 
 
 let g:NERDTreeStatusline = -1
+let g:NERDTreeUseTCD = -1
 
 if exists("g:cvimroot")
     let g:NERDTreeBookmarksFile = g:cvimroot."/.cvim/NERDTreeBookmarks"
