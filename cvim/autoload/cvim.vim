@@ -118,6 +118,19 @@ fu! cvim#New()
     exec 'vsplit ' . g:cvimroot . '/.cvim/cvimrc.vim'
 endf
 
+" cwd
+fu! cvim#Cd()
+    exec 'cd ' . g:cvimroot
+endf
+
+fu! cvim#Tcd()
+    exec 'tcd ' . g:cvimroot
+endf
+
+fu! cvim#Lcd()
+    exec 'tcd ' . getcwd(-1, 0)
+endf
+
 " files
 fu! cvim#files()
     if exists('g:cvimroot')
