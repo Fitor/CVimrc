@@ -1,4 +1,4 @@
-let s:cwd = getcwd()
+" path
 if has('win32') || has('win64')
     let s:lash = '\'
 el
@@ -85,13 +85,56 @@ endf
 " usage:
 " let markers = ['.git', '.hg', '.svn', '.bzr', '_darcs']
 " call cvim#utils#findroot(s:cwd, markers, 40)
+" Reference from ctrlp
 fu! cvim#utils#findroot(curr, mark, maxdepth)
     return s:findroot(a:curr, a:mark, a:maxdepth)
 endf
 
-" pattern transform
+fu! s:relpath(target, ...)
+    " convert to absolute path
+    let base = fnamemodify(a:0 ? simplify(a:1) : getcwd(), ':p')
+    let target = fnamemodify(simplify(a:target), ':p')
+
+    " splic
+    let base_parts = split(base, '/', 1)
+    let target_parts = split(target, '/', 1)
+
+    " remove last empty part
+    if !empty(base_parts) && base_parts[-1] ==# ''
+        call remove(base_parts, -1)
+    en
+    if !empty(target_parts) && target_parts[-1] ==# ''
+        call remove(target_parts, -1)
+    en
+
+    " find common prefix
+    let i = 0
+    while i < len(base_parts) && i < len(target_parts)
+        if base_parts[i] !=# target_parts[i]
+            break
+        en
+
+        let i += 1
+    endwhile
+
+    " calculate the backoff derivative and the remaining portion of the target
+    let back_parts = repeat(['..'], len(base_parts) - i)
+    let target_remain = target_parts[i:]
+
+    " form a relative path
+    let rel_parts = back_parts + target_remain
+    let rel_path = join(rel_parts, '/')
+
+    return rel_path !=# '' ? rel_path : '.'
+endf
+
+fu! cvim#utils#relpath(target, ...)
+    return call('s:relpath', [ a:target ] + a:000)
+endf
+
+" pattern
 fu! s:checkChar(c)
-    for c in [ '(', ')', '{', '}', '|', '+', '?']
+    for c in [ '(', ')', '{', '}', '|', '+', '?' ]
         if a:c == c
             return v:true
         en
