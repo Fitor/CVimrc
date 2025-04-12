@@ -39,18 +39,18 @@ let g:lightline.component = {
     \   }
 
 let g:lightline.component_function = {
-    \       'mode': 'LightlineMode',
-    \       'filename': 'LightlineFilename',
-    \       'fileformat': 'LightlineFileformat',
-    \       'filetype': 'LightlineFiletype',
-    \       'fileencoding': 'LightlineFileencoding',
-    \       'fugitive': 'LightlineFugitive',
-    \       'codeium': 'LightlineCodeium',
+    \       'mode': 'lightline#stl#mode',
+    \       'filename': 'lightline#stl#filename',
+    \       'fileformat': 'lightline#stl#fileformat',
+    \       'filetype': 'lightline#stl#filetype',
+    \       'fileencoding': 'lightline#stl#fileencoding',
+    \       'fugitive': 'lightline#stl#fugitive',
+    \       'codeium': 'lightline#stel#codeium',
     \   }
 
 let g:lightline.component_expand = {
-    \       'cvim': 'LightlineCvim',
-    \       'cwd': 'LightlineCWD',
+    \       'cvim': 'lightline#stl#cvim',
+    \       'cwd': 'lightline#stl#cwd',
     \   }
 
 let g:lightline.component_type = {
@@ -62,76 +62,5 @@ let g:lightline.component_visible_condition = {
     \       'mode':     '(&filetype!="startify" && &filetype!="nerdtree")',
     \   }
 
-" basic
-function! LightlineMode()
-    let fname = expand('%:t')
-    return fname =~# 'NERD_tree' ? 'NERDTree' :
-                \ &ft ==# 'startify' ? 'Startify' :
-                \ winwidth(0) > 60 ? lightline#mode() : ''
-endfunction
-
-function! LightlineModified()
-    return &ft ==# 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-endfunction
-
-function! LightlineReadonly()
-    return &ft !~? 'help' && &readonly ? 'RO' : ''
-endfunction
-
-function! LightlineFilename()
-    let fname = expand('%:t')
-    return fname =~# '^__Tagbar__\|__Gundo\|NERD_tree' ? '' :
-                \ &ft ==# 'startify' ? '' :
-                \ (LightlineReadonly() !=# '' ? LightlineReadonly() . ' ' : '') .
-                \ (fname !=# '' ? fname : '[No Name]') .
-                \ (LightlineModified() !=# '' ? ' ' . LightlineModified() : '')
-endfunction
-
-function! LightlineFileformat()
-    return winwidth(0) > 70 ? &fileformat : ''
-endfunction
-
-function! LightlineFiletype()
-    return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
-endfunction
-
-function! LightlineFileencoding()
-    return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
-endfunction
-
-" cvim
-function! LightlineCvim()
-    if exists('g:cvimroot')
-        return cvim#puttypath(g:cvimroot)
-    endif
-    return ''
-endfunction
-
-" cwd
-function! LightlineCWD()
-    return cvim#puttypath(getcwd())
-endfunction
-
 " startify
 autocmd User StartifyReady call lightline#update()
-
-" fugitive
-function! LightlineFugitive()
-    try
-        if expand('%:t') !~? 'Tagbar\|Gundo\|NERD' && &ft !~? 'vimfiler\|startify' && exists('*FugitiveHead')
-            let mark = ''  " edit here for cool mark
-            let branch = FugitiveHead()
-            return branch !=# '' ? mark.branch : ''
-        endif
-    catch
-    endtry
-    return ''
-endfunction
-
-" codeium
-function! LightlineCodeium()
-    if exists('g:loaded_codeium')
-        return codeium#GetStatusString()
-    endif
-    return ''
-endfunction
