@@ -138,12 +138,12 @@ fu! cvim#files()
     else
         let dir = getcwd()
     en
-    call fzf#vim#files(dir, fzf#vim#with_preview())
+    call fzf#vim#files(dir, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}))
 endf
 
 fu! cvim#curfiles()
     let dir = getcwd()
-    call fzf#vim#files(dir, fzf#vim#with_preview())
+    call fzf#vim#files(dir, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}))
 endf
 
 " grep
@@ -160,9 +160,11 @@ fu! cvim#grep()
 
     if exists('g:cvimroot')
         let rgconf = g:cvimroot . '/.cvim/rgconf'
-        call fzf#vim#grep("( cd " . shellescape(g:cvimroot) . " && env RIPGREP_CONFIG_PATH=" . shellescape(rgconf) . " rg " . rg_opts . shellescape(pattern) . " )", fzf#vim#with_preview())
+        call fzf#vim#grep("( cd " . shellescape(g:cvimroot) . " && env RIPGREP_CONFIG_PATH=" . shellescape(rgconf) . " rg " . rg_opts . shellescape(pattern) . " )",
+                    \ fzf#vim#with_preview({'options': ['--header=' . pattern, '--layout=reverse', '--info=inline']}))
     else
-        call fzf#vim#grep("rg " . rg_opts . shellescape(pattern), fzf#vim#with_preview())
+        call fzf#vim#grep("rg " . rg_opts . shellescape(pattern),
+                    \ fzf#vim#with_preview({'options': ['--header=' . pattern, '--layout=reverse', '--info=inline']}))
     en
 endf
 
@@ -177,7 +179,8 @@ fu! cvim#curgrep()
 
     let rg_opts = " --column --line-number --no-heading --color=always --smart-case -- "
 
-    call fzf#vim#grep("rg " . rg_opts . shellescape(pattern), fzf#vim#with_preview())
+    call fzf#vim#grep("rg " . rg_opts . shellescape(pattern),
+                \ fzf#vim#with_preview({'options': ['--header=' . pattern, '--layout=reverse', '--info=inline']}))
 endf
 
 " putty path
