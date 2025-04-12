@@ -24,7 +24,7 @@ let g:lightline = {
 let g:lightline.active = {
     \       'left': [
     \           [ 'mode', 'paste' ],
-    \           [ 'gitbranch', 'readonly', 'filename', 'modified' ],
+    \           [ 'fugitive', 'filename' ],
     \           [ 'codeium' ]
     \       ]
     \   }
@@ -39,19 +39,20 @@ let g:lightline.tabline = {
     \   }
 
 let g:lightline.component = {
-    \       'mode':     '%{(&filetype=="startify" || &filetype=="nerdtree") ? "" : lightline#mode()}',
-    \       'filename': '%{(&filetype=="startify" || &filetype=="nerdtree") ? "" : expand("%:t")}',
-    \       'readonly': '%{(&filetype=="help" || &filetype=="startify" || &filetype=="nerdtree") ? "" : &readonly ? "x" : ""}',
-    \       'modified': '%{(&filetype=="help" || &filetype=="startify" || &filetype=="nerdtree") ? "" : &modified ? "+" : &modifiable ? "" : "-"}'
     \   }
 
 let g:lightline.component_function = {
-    \       'codeium': 'LightlineCodeiumStatus',
-    \       'gitbranch': 'FugitiveHead'
+    \       'mode': 'LightlineMode',
+    \       'filename': 'LightlineFilename',
+    \       'fileformat': 'LightlineFileformat',
+    \       'filetype': 'LightlineFiletype',
+    \       'fileencoding': 'LightlineFileencoding',
+    \       'fugitive': 'LightlineFugitive',
+    \       'codeium': 'LightlineCodeium',
     \   }
 
 let g:lightline.component_expand = {
-    \       'cvim': 'LightlineCvimStatus'
+    \       'cvim': 'LightlineCvim'
     \   }
 
 let g:lightline.component_type = {
@@ -60,23 +61,73 @@ let g:lightline.component_type = {
 
 let g:lightline.component_visible_condition = {
     \       'mode':     '(&filetype!="startify" && &filetype!="nerdtree")',
-    \       'filename': '(&filetype!="startify" && &filetype!="nerdtree")',
-    \       'readonly': '(&filetype!="help" && &filetype!="startify" && &filetype!="nerdtree" && &readonly)',
-    \       'modified': '(&filetype!="help" && &filetype!="startify" && &filetype!="nerdtree" && (&modified || !&modifiable))'
     \   }
 
-function! LightlineCodeiumStatus()
-    if exists('g:loaded_codeium')
-        return codeium#GetStatusString()
-    endif
-    return ''
+" basic
+function! LightlineMode()
+    let fname = expand('%:t')
+    return fname =~# 'NERD_tree' ? 'NERDTree' :
+                \ &ft ==# 'startify' ? 'Startify' :
+                \ winwidth(0) > 60 ? lightline#mode() : ''
 endfunction
 
-function! LightlineCvimStatus()
+function! LightlineModified()
+    return &ft ==# 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
+
+function! LightlineReadonly()
+    return &ft !~? 'help' && &readonly ? 'RO' : ''
+endfunction
+
+function! LightlineFilename()
+    let fname = expand('%:t')
+    return fname =~# '^__Tagbar__\|__Gundo\|NERD_tree' ? '' :
+                \ &ft ==# 'startify' ? '' :
+                \ (LightlineReadonly() !=# '' ? LightlineReadonly() . ' ' : '') .
+                \ (fname !=# '' ? fname : '[No Name]') .
+                \ (LightlineModified() !=# '' ? ' ' . LightlineModified() : '')
+endfunction
+
+function! LightlineFileformat()
+    return winwidth(0) > 70 ? &fileformat : ''
+endfunction
+
+function! LightlineFiletype()
+    return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+endfunction
+
+function! LightlineFileencoding()
+    return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
+endfunction
+
+" cvim
+function! LightlineCvim()
     if exists('g:cvimroot')
         return cvim#puttypath(g:cvimroot)
     endif
     return ''
 endfunction
 
-" TODO see amazing lightline-examples
+" startify
+autocmd User StartifyReady call lightline#update()
+
+" fugitive
+function! LightlineFugitive()
+    try
+        if expand('%:t') !~? 'Tagbar\|Gundo\|NERD' && &ft !~? 'vimfiler\|startify' && exists('*FugitiveHead')
+            let mark = ''  " edit here for cool mark
+            let branch = FugitiveHead()
+            return branch !=# '' ? mark.branch : ''
+        endif
+    catch
+    endtry
+    return ''
+endfunction
+
+" codeium
+function! LightlineCodeium()
+    if exists('g:loaded_codeium')
+        return codeium#GetStatusString()
+    endif
+    return ''
+endfunction
