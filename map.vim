@@ -3,4 +3,6 @@ if exists("g:map_config") && g:map_config
 endif
 let g:map_config = 1
 
-nmap ;t  :tabnew<CR>
+" tabpage
+nmap ;tn  :tabnew<CR>
+nmap ;tc  :tabc<CR>
