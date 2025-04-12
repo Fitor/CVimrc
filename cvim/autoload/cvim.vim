@@ -161,10 +161,24 @@ fu! cvim#grep()
     if exists('g:cvimroot')
         let rgconf = g:cvimroot . '/.cvim/rgconf'
         call fzf#vim#grep("( cd " . shellescape(g:cvimroot) . " && env RIPGREP_CONFIG_PATH=" . shellescape(rgconf) . " rg " . rg_opts . shellescape(pattern) . " )",
-                    \ fzf#vim#with_preview({'options': ['--header=' . pattern, '--layout=reverse', '--info=inline']}))
+                    \ fzf#vim#with_preview({'options': [
+                    \ '--header=' . pattern,
+                    \ '--layout=reverse',
+                    \ '--info=inline',
+                    \ '--scheme', 'path',
+                    \ '-m',
+                    \ '--prompt', strwidth(g:cvimroot) < &columns / 2 - 20 ? 'Rg> ' . g:cvimroot : 'Rg> ',
+                    \ ]}))
     else
         call fzf#vim#grep("rg " . rg_opts . shellescape(pattern),
-                    \ fzf#vim#with_preview({'options': ['--header=' . pattern, '--layout=reverse', '--info=inline']}))
+                    \ fzf#vim#with_preview({'options': [
+                    \ '--header=' . pattern,
+                    \ '--layout=reverse',
+                    \ '--info=inline',
+                    \ '--scheme', 'path',
+                    \ '-m',
+                    \ '--prompt', strwidth(getcwd()) < &columns / 2 - 20 ? 'Rg> ' . getcwd() : 'Rg> ',
+                    \ ]}))
     en
 endf
 
@@ -180,7 +194,14 @@ fu! cvim#curgrep()
     let rg_opts = " --column --line-number --no-heading --color=always --smart-case -- "
 
     call fzf#vim#grep("rg " . rg_opts . shellescape(pattern),
-                \ fzf#vim#with_preview({'options': ['--header=' . pattern, '--layout=reverse', '--info=inline']}))
+                \ fzf#vim#with_preview({'options': [
+                \ '--header=' . pattern,
+                \ '--layout=reverse',
+                \ '--info=inline',
+                \ '--scheme', 'path',
+                \ '-m',
+                \ '--prompt', strwidth(getcwd()) < &columns / 2 - 20 ? 'Rg> ' . getcwd() : 'Rg> ',
+                \ ]}))
 endf
 
 " putty path
