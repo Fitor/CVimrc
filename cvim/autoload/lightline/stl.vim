@@ -53,6 +53,41 @@ function! lightline#stl#cwd()
     endif
 endfunction
 
+function! lightline#stl#tabcwd()
+    if exists('g:cvimroot')
+        let p = cvim#utils#relpath(getcwd(-1, 0), g:cvimroot)
+        let p = cvim#puttypath(p)
+    else
+        let p = cvim#puttypath(getcwd(-1, 0))
+    endif
+
+    if haslocaldir(-1, 0) == 2
+        " tab-local directory case
+        return p.'[t]'
+    else
+        " global directory case
+        return p
+    endif
+endfunction
+
+function! lightline#stl#wincwd()
+    if haslocaldir() == 1
+        " window local directory case
+        if exists('g:cvimroot')
+            let p = cvim#utils#relpath(getcwd(), g:cvimroot)
+            return cvim#puttypath(p)
+        else
+            return cvim#puttypath(getcwd())
+        endif
+    elseif haslocaldir() == 2
+        " tab-local directory case
+        return ''
+    else
+        " global directory case
+        return ''
+    endif
+endfunction
+
 " fugitive
 function! lightline#stl#fugitive()
     try

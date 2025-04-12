@@ -21,7 +21,7 @@ let g:lightline = {
 let g:lightline.active = {
     \       'left': [
     \           [ 'mode', 'paste' ],
-    \           [ 'fugitive', 'filename' ],
+    \           [ 'fugitive', 'filename', 'wincwd' ],
     \           [ 'codeium' ]
     \       ]
     \   }
@@ -31,7 +31,7 @@ let g:lightline.tabline = {
     \           [ 'tabs' ]
     \       ],
     \       'right': [
-    \           [ 'close', 'cwd', 'cvim' ]
+    \           [ 'close', 'tabcwd', 'cvim' ]
     \       ]
     \   }
 
@@ -50,12 +50,14 @@ let g:lightline.component_function = {
 
 let g:lightline.component_expand = {
     \       'cvim': 'lightline#stl#cvim',
-    \       'cwd': 'lightline#stl#cwd',
+    \       'tabcwd': 'lightline#stl#tabcwd',
+    \       'wincwd': 'lightline#stl#wincwd',
     \   }
 
 let g:lightline.component_type = {
     \       'cvim': 'cvim',
-    \       'cwd': 'cwd',
+    \       'tabcwd': 'tabcwd',
+    \       'wincwd': 'wincwd',
     \   }
 
 let g:lightline.component_visible_condition = {
@@ -64,3 +66,6 @@ let g:lightline.component_visible_condition = {
 
 " startify
 autocmd User StartifyReady call lightline#update()
+
+" for update wincwd after :lcd
+autocmd DirChanged * call lightline#update()

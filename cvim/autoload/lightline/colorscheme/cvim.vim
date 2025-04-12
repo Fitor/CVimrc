@@ -22,6 +22,7 @@ let s:p.tabline.right = [ [ '#d0d0d0', '#666666', 252, 242 ] ]
 let s:p.normal.error = [ [ '#d0d0d0', '#ff0000', 252, 196 ] ]
 let s:p.normal.warning = [ [ '#262626', '#ffff00', 235, 226 ] ]
 let s:p.normal.cvim = [ ['#0000ff', '#ffffff', 21, 231, 'bold' ] ]
-let s:p.normal.cwd = [ [ '#F92672', '#ffffff', 161, 252 , 'bold'] ]
+let s:p.normal.tabcwd = [ [ '#F92672', '#ffffff', 161, 252 , 'bold'] ]
+let s:p.normal.wincwd = [ [ '#F92672', '#ffffff', 161, 252 , 'bold'] ]
 
 let g:lightline#colorscheme#cvim#palette = s:p
