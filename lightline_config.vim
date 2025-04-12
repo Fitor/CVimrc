@@ -14,9 +14,6 @@ set laststatus=2
 
 let g:lightline = {
     \       'colorscheme': 'cvim',
-    \       'mode_map': {
-    \           'c': 'SEARCH'
-    \       },
     \       'separator': { 'left': '', 'right': '' },
     \       'subseparator': { 'left': '|', 'right': '|' }
     \   }
@@ -34,7 +31,7 @@ let g:lightline.tabline = {
     \           [ 'tabs' ]
     \       ],
     \       'right': [
-    \           [ 'close', 'cvim' ]
+    \           [ 'close', 'cwd', 'cvim' ]
     \       ]
     \   }
 
@@ -52,11 +49,13 @@ let g:lightline.component_function = {
     \   }
 
 let g:lightline.component_expand = {
-    \       'cvim': 'LightlineCvim'
+    \       'cvim': 'LightlineCvim',
+    \       'cwd': 'LightlineCWD',
     \   }
 
 let g:lightline.component_type = {
-    \       'cvim': 'cvim'
+    \       'cvim': 'cvim',
+    \       'cwd': 'cwd',
     \   }
 
 let g:lightline.component_visible_condition = {
@@ -106,6 +105,11 @@ function! LightlineCvim()
         return cvim#puttypath(g:cvimroot)
     endif
     return ''
+endfunction
+
+" cwd
+function! LightlineCWD()
+    return cvim#puttypath(getcwd())
 endfunction
 
 " startify
