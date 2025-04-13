@@ -38,7 +38,7 @@ endfunction
 " cvim
 function! lightline#stl#cvim()
     if exists('g:cvimroot')
-        return cvim#puttypath(g:cvimroot)
+        return cvim#prettypath(g:cvimroot)
     endif
     return ''
 endfunction
@@ -47,18 +47,18 @@ endfunction
 function! lightline#stl#cwd()
     if exists('g:cvimroot')
         let p = cvim#utils#relpath(getcwd(), g:cvimroot)
-        return cvim#puttypath(p)
+        return cvim#prettypath(p)
     else
-        return cvim#puttypath(getcwd())
+        return cvim#prettypath(getcwd())
     endif
 endfunction
 
 function! lightline#stl#tabcwd()
     if exists('g:cvimroot')
         let p = cvim#utils#relpath(getcwd(-1, 0), g:cvimroot)
-        let p = cvim#puttypath(p)
+        let p = cvim#prettypath(p)
     else
-        let p = cvim#puttypath(getcwd(-1, 0))
+        let p = cvim#prettypath(getcwd(-1, 0))
     endif
 
     if haslocaldir(-1, 0) == 2
@@ -75,9 +75,9 @@ function! lightline#stl#wincwd()
         " window local directory case
         if exists('g:cvimroot')
             let p = cvim#utils#relpath(getcwd(), g:cvimroot)
-            return cvim#puttypath(p)
+            return cvim#prettypath(p)
         else
-            return cvim#puttypath(getcwd())
+            return cvim#prettypath(getcwd())
         endif
     elseif haslocaldir() == 2
         " tab-local directory case

@@ -24,10 +24,10 @@
 " let g:cv_code_wxapp_enable = v:true
 
 " cvim
-" putty path
+" pretty path
 " let s:homepath = escape($HOME, '/')
 " let s:tmppath = escape($HOME . '/tmp/', '/')
-" let g:cv_putty_path = {
+" let g:cv_pretty_path = {
 "           \   s:homepath: '~',
 "           \   s:tmppath: '[TMP]',
 "           \   '\/path\/to\/proj\>': '[PROJ]',

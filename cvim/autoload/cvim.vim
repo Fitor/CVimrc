@@ -156,31 +156,40 @@ fu! cvim#grep()
 
     let pattern = cvim#utils#magicPattern2Perl(pattern)
 
-    let rg_opts = " --column --line-number --no-heading --color=always --smart-case -- "
+    let rg_opts = [
+                \ '--column',
+                \ '--line-number',
+                \ '--no-heading',
+                \ '--color=always',
+                \ '--smart-case',
+                \ '--'
+                \ ]
+    let fzf_opts = [
+                    \ '--header='.pattern,
+                    \ '--layout=reverse',
+                    \ '--info=inline',
+                    \ '--multi', '--bind', 'ctrl-a:select-all,ctrl-d:deselect-all',
+                    \ '--scheme', 'path',
+                    \ '-m',
+                    \ ]
 
     if exists('g:cvimroot')
-        let rgconf = g:cvimroot . '/.cvim/rgconf'
-        call fzf#vim#grep("( cd " . shellescape(g:cvimroot) . " && env RIPGREP_CONFIG_PATH=" . shellescape(rgconf) . " rg " . rg_opts . shellescape(pattern) . " )",
-                    \ fzf#vim#with_preview({'options': [
-                    \ '--header=' . pattern,
-                    \ '--layout=reverse',
-                    \ '--info=inline',
-                    \ '--multi', '--bind', 'ctrl-a:select-all,ctrl-d:deselect-all',
-                    \ '--scheme', 'path',
-                    \ '-m',
-                    \ '--prompt', strwidth(g:cvimroot) < &columns / 2 - 20 ? 'Rg> ' . g:cvimroot : 'Rg> ',
-                    \ ]}))
+        let path = g:cvimroot
     else
-        call fzf#vim#grep("rg " . rg_opts . shellescape(pattern),
-                    \ fzf#vim#with_preview({'options': [
-                    \ '--header=' . pattern,
-                    \ '--layout=reverse',
-                    \ '--info=inline',
-                    \ '--multi', '--bind', 'ctrl-a:select-all,ctrl-d:deselect-all',
-                    \ '--scheme', 'path',
-                    \ '-m',
-                    \ '--prompt', strwidth(getcwd()) < &columns / 2 - 20 ? 'Rg> ' . getcwd() : 'Rg> ',
-                    \ ]}))
+        let path = getcwd()
+    en
+
+    let prettypath = cvim#utils#relpath(path).'['.cvim#prettypath(path).']'
+    let fzf_opts += [ '--prompt', strwidth(prettypath) < &columns / 2 - 20 ? 'Rg> ' . prettypath : 'Rg> ' ]
+
+    if exists('g:cvimroot')
+        let rgconf = g:cvimroot.'/.cvim/rgconf'
+        call fzf#vim#grep('( env RIPGREP_CONFIG_PATH='.shellescape(rgconf)
+                    \ .' rg '.join(rg_opts, ' ').' '.shellescape(pattern).' '.shellescape(cvim#utils#relpath(g:cvimroot)) . ')',
+                    \ fzf#vim#with_preview({'options': fzf_opts }))
+    else
+        call fzf#vim#grep('rg '.join(rg_opts, ' ').' '.shellescape(pattern),
+                    \ fzf#vim#with_preview({'options': fzf_opts}))
     en
 endf
 
@@ -192,30 +201,40 @@ fu! cvim#curgrep()
     en
 
     let pattern = cvim#utils#magicPattern2Perl(pattern)
+    let path = getcwd()
+    let prettypath = cvim#utils#relpath(path).'['.cvim#prettypath(path).']'
 
-    let rg_opts = " --column --line-number --no-heading --color=always --smart-case -- "
+    let rg_opts = [
+                \ '--column',
+                \ '--line-number',
+                \ '--no-heading',
+                \ '--color=always',
+                \ '--smart-case',
+                \ '--'
+                \ ]
+    let fzf_opts = [
+                    \ '--header='.pattern,
+                    \ '--layout=reverse',
+                    \ '--info=inline',
+                    \ '--multi', '--bind', 'ctrl-a:select-all,ctrl-d:deselect-all',
+                    \ '--scheme', 'path',
+                    \ '-m',
+                    \ '--prompt', strwidth(prettypath) < &columns / 2 - 20 ? 'Rg> ' . prettypath : 'Rg> ',
+                    \ ]
 
-    call fzf#vim#grep("rg " . rg_opts . shellescape(pattern),
-                \ fzf#vim#with_preview({'options': [
-                \ '--header=' . pattern,
-                \ '--layout=reverse',
-                \ '--info=inline',
-                \ '--multi', '--bind', 'ctrl-a:select-all,ctrl-d:deselect-all',
-                \ '--scheme', 'path',
-                \ '-m',
-                \ '--prompt', strwidth(getcwd()) < &columns / 2 - 20 ? 'Rg> ' . getcwd() : 'Rg> ',
-                \ ]}))
+    call fzf#vim#grep("rg ".join(rg_opts, ' ').' '.shellescape(pattern),
+                \ fzf#vim#with_preview({'options': fzf_opts}))
 endf
 
-" putty path
-fu! cvim#puttypath(path)
-    if !exists('g:cv_putty_path')
+" pretty path
+fu! cvim#prettypath(path)
+    if !exists('g:cv_pretty_path')
         return a:path
     en
 
     let ml = 0
 
-    for [k, v] in items(g:cv_putty_path)
+    for [k, v] in items(g:cv_pretty_path)
         let p = substitute(a:path, k, v, '')
         if p == a:path
             continue
