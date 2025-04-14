@@ -154,7 +154,7 @@ fu! cvim#grep()
         let pattern = getreg('/')
     en
 
-    let pattern = cvim#utils#pattern_2perl(pattern)
+    let pattern = cvim#utils#pattern_magic2perl(pattern)
 
     let rg_opts = [
                 \ '--column',
@@ -185,7 +185,7 @@ fu! cvim#grep()
     if exists('g:cvimroot')
         let rgconf = g:cvimroot.'/.cvim/rgconf'
         call fzf#vim#grep('( env RIPGREP_CONFIG_PATH='.shellescape(rgconf)
-                    \ .' rg '.join(rg_opts, ' ').' '.shellescape(pattern).' '.shellescape(cvim#utils#relpath(g:cvimroot)) . ')',
+                    \ .' rg '.join(rg_opts, ' ').' '.shellescape(pattern).' '.shellescape(cvim#utils#relpath(g:cvimroot)).')',
                     \ fzf#vim#with_preview({'options': fzf_opts }))
     else
         call fzf#vim#grep('rg '.join(rg_opts, ' ').' '.shellescape(pattern),
@@ -222,8 +222,15 @@ fu! cvim#curgrep()
                     \ '--prompt', strwidth(prettypath) < &columns / 2 - 20 ? 'Rg> ' . prettypath : 'Rg> ',
                     \ ]
 
-    call fzf#vim#grep("rg ".join(rg_opts, ' ').' '.shellescape(pattern),
-                \ fzf#vim#with_preview({'options': fzf_opts}))
+    if exists('g:cvimroot')
+        let rgconf = g:cvimroot.'/.cvim/rgconf'
+        call fzf#vim#grep('( env RIPGREP_CONFIG_PATH='.shellescape(rgconf)
+                    \ .' rg '.join(rg_opts, ' ').' '.shellescape(pattern).')',
+                    \ fzf#vim#with_preview({'options': fzf_opts }))
+    else
+        call fzf#vim#grep("rg ".join(rg_opts, ' ').' '.shellescape(pattern),
+                    \ fzf#vim#with_preview({'options': fzf_opts}))
+    en
 endf
 
 " pretty path
