@@ -148,10 +148,13 @@ endf
 
 " grep
 fu! cvim#grep()
-    let pattern = input('Input pattern:')
+    let magic_pattern = getreg('/')
+    let pattern = input('grep> Input pattern('.magic_pattern.'):')
 
     if strlen(pattern) <= 0
-        let pattern = getreg('/')
+        let pattern = magic_pattern
+    else
+        let magic_pattern = pattern
     en
 
     let pattern = cvim#utils#pattern_magic2perl(pattern)
@@ -160,12 +163,13 @@ fu! cvim#grep()
                 \ '--column',
                 \ '--line-number',
                 \ '--no-heading',
+                \ '--with-filename',
                 \ '--color=always',
                 \ '--pcre2',
                 \ '--'
                 \ ]
     let fzf_opts = [
-                    \ '--header='.pattern,
+                    \ '--header='.magic_pattern.' -> '.pattern,
                     \ '--layout=reverse',
                     \ '--info=inline',
                     \ '--multi', '--bind', 'ctrl-a:select-all,ctrl-d:deselect-all',
@@ -173,7 +177,7 @@ fu! cvim#grep()
                     \ '-m',
                     \ ]
 
-    let path = input('Input path:')
+    let path = input('grep> Input path:')
 
     if exists('g:cvimroot')
         let path = g:cvimroot.'/'.path
@@ -196,15 +200,18 @@ fu! cvim#grep()
 endf
 
 fu! cvim#curgrep()
-    let pattern = input('Input pattern:')
+    let magic_pattern = getreg('/')
+    let pattern = input('curgrep> Input pattern('.magic_pattern.'):')
 
     if strlen(pattern) <= 0
-        let pattern = getreg('/')
+        let pattern = magic_pattern
+    else
+        let magic_pattern = pattern
     en
 
     let pattern = cvim#utils#pattern_magic2perl(pattern)
 
-    let path = input('Input path:')
+    let path = input('curgrep> Input path:')
     let path = getcwd().'/'.path
     let prettypath = cvim#utils#relpath(path).' -> '.cvim#prettypath(path)
 
@@ -212,12 +219,13 @@ fu! cvim#curgrep()
                 \ '--column',
                 \ '--line-number',
                 \ '--no-heading',
+                \ '--with-filename',
                 \ '--color=always',
                 \ '--pcre2',
                 \ '--'
                 \ ]
     let fzf_opts = [
-                    \ '--header='.pattern,
+                    \ '--header='.magic_pattern.' -> '.pattern,
                     \ '--layout=reverse',
                     \ '--info=inline',
                     \ '--multi', '--bind', 'ctrl-a:select-all,ctrl-d:deselect-all',
