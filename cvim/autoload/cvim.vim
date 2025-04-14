@@ -154,14 +154,14 @@ fu! cvim#grep()
         let pattern = getreg('/')
     en
 
-    let pattern = cvim#utils#magicPattern2Perl(pattern)
+    let pattern = cvim#utils#pattern_2perl(pattern)
 
     let rg_opts = [
                 \ '--column',
                 \ '--line-number',
                 \ '--no-heading',
                 \ '--color=always',
-                \ '--smart-case',
+                \ '--pcre2',
                 \ '--'
                 \ ]
     let fzf_opts = [
@@ -200,7 +200,7 @@ fu! cvim#curgrep()
         let pattern = getreg('/')
     en
 
-    let pattern = cvim#utils#magicPattern2Perl(pattern)
+    let pattern = cvim#utils#pattern_magic2perl(pattern)
     let path = getcwd()
     let prettypath = cvim#utils#relpath(path).'['.cvim#prettypath(path).']'
 
@@ -209,7 +209,7 @@ fu! cvim#curgrep()
                 \ '--line-number',
                 \ '--no-heading',
                 \ '--color=always',
-                \ '--smart-case',
+                \ '--pcre2',
                 \ '--'
                 \ ]
     let fzf_opts = [

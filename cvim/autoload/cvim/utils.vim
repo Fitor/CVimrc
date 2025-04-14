@@ -133,9 +133,9 @@ fu! cvim#utils#relpath(target, ...)
 endf
 
 " pattern
-fu! s:checkChar(c)
+fu! s:reverse_char(c)
     for c in [ '(', ')', '{', '}', '|', '+', '?' ]
-        if a:c == c
+        if a:c ==# c
             return v:true
         en
     endfor
@@ -143,13 +143,27 @@ fu! s:checkChar(c)
     return v:false
 endf
 
-fu! s:magicPattern2Perl(s)
+fu! s:translate_magic(c)
+    for [k, v] in items({
+                \ '<': 'b',
+                \ '>': 'b',
+                \})
+        if a:c ==# k
+            return v
+        en
+    endfor
+
+    return a:c
+endf
+
+fu! s:pattern_magic2perl(s)
     let i = 0
     let l = strlen(a:s)
-    let a = []
+    let caseignore = v:true
+    let a = [ ]
     while i < l:l
         let c = a:s[i]
-        if s:checkChar(c) == v:true
+        if s:reverse_char(c) == v:true
             call add(a, '\' . c)
         elseif c == '\'
             let i += 1
@@ -157,10 +171,14 @@ fu! s:magicPattern2Perl(s)
                 return
             en
             let c = a:s[i]
-            if s:checkChar(c) == v:true
+            if c ==# 'c'
+                let caseignore = v:true
+            elseif c ==# 'C'
+                let caseignore = v:false
+            elseif s:reverse_char(c) == v:true
                 call add(a, c)
             else
-                call add(a, '\' . c)
+                call add(a, '\' . s:translate_magic(c))
             en
         else
             call add(a, c)
@@ -169,9 +187,13 @@ fu! s:magicPattern2Perl(s)
         let i += 1
     endwhile
 
+    if caseignore == v:true
+        let a = ['(?i)'] + a
+    en
+
     return join(a, '')
 endf
 
-fu! cvim#utils#magicPattern2Perl(str)
-    return s:magicPattern2Perl(a:str)
+fu! cvim#utils#pattern_magic2perl(str)
+    return s:pattern_magic2perl(a:str)
 endf
