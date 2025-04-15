@@ -120,11 +120,15 @@ endf
 
 " cwd
 fu! cvim#Cd()
-    exec 'cd ' . g:cvimroot
+    if exists('g:cvimroot')
+        exec 'cd ' . g:cvimroot
+    en
 endf
 
 fu! cvim#Tcd()
-    exec 'tcd ' . g:cvimroot
+    if exists('g:cvimroot')
+        exec 'cd ' . g:cvimroot
+    en
 endf
 
 fu! cvim#Lcd()
