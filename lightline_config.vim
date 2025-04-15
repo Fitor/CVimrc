@@ -35,6 +35,10 @@ let g:lightline.tabline = {
     \       ]
     \   }
 
+let g:lightline.tab = {
+            \ 'active': [ 'tabnum', 'tabname', 'filename', 'modified' ],
+            \ 'inactive': [ 'tabnum','tabname', 'filename', 'modified' ] }
+
 let g:lightline.component = {
     \   }
 
@@ -47,6 +51,11 @@ let g:lightline.component_function = {
     \       'fugitive': 'lightline#stl#fugitive',
     \       'codeium': 'lightline#stel#codeium',
     \   }
+
+let g:lightline.tab_component_function = {
+            \ 'filename': 'lightline#tab#filename',
+            \ 'tabname': 'lightline#stl#tabname',
+            \}
 
 let g:lightline.component_expand = {
     \       'cvim': 'lightline#stl#cvim',

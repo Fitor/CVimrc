@@ -108,3 +108,9 @@ function! lightline#stel#codeium()
     endif
     return ''
 endfunction
+
+" tabname
+function! lightline#stl#tabname(n)
+    let name = gettabvar(a:n, 'cvname')
+    return empty(name) ? '' : '<'.name.'>'
+endfunction
