@@ -112,5 +112,5 @@ endfunction
 " tabname
 function! lightline#stl#tabname(n)
     let name = gettabvar(a:n, 'cvname')
-    return empty(name) ? '' : '<'.name.'>'
+    return empty(name) ? '' : '['.name.']'
 endfunction
