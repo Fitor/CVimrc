@@ -272,3 +272,21 @@ fu! cvim#prettypath(path)
 
     return exists('r') ? r : a:path
 endf
+
+" session
+fu! cvim#save_tabs_name()
+    let g:startify_tabs_name = []
+    let list = g:startify_tabs_name
+    call remove(list, 0, -1)
+	for nr in range(1, tabpagenr('$'))
+        call add(list, gettabvar(nr, 'cvname'))
+	endfo
+endf
+
+fu! cvim#load_tabs_name()
+    if exists('g:startify_tabs_name')
+        for i in range(0, len(g:startify_tabs_name) - 1)
+            call settabvar(i + 1, 'cvname', g:startify_tabs_name[i])
+        endfor
+    en
+endf

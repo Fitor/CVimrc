@@ -46,3 +46,15 @@ function! s:read_bookmarks()
 endfunction
 
 autocmd User StartifyReady call s:read_bookmarks()
+
+" session
+let g:startify_session_savevars = [
+            \ 'g:startify_tabs_name',
+            \ ]
+let g:startify_session_before_save = [
+            \ 'silent! tabdo NERDTreeClose',
+            \ 'silent! call cvim#save_tabs_name()',
+            \ ]
+let g:startify_session_savecmds = [
+            \ 'call cvim#load_tabs_name()',
+            \ ]
