@@ -17,7 +17,7 @@ Plugin 'mhinz/vim-startify' " The fancy start screen for vim.
 Plugin 'scrooloose/nerdtree'
 Plugin 'itchyny/lightline.vim' "A light and configurable statusline/tabline plugin for Vim
 Plugin 'godlygeek/tabular'
-Plugin 'kien/tabman.vim'  " Tab management for Vim
+Plugin 'Fitor/tabman.vim'  " Tab management for Vim
 Plugin 'a.vim' "Alternate Files quickly.(.c --> .h etc)
 Plugin 'DoxygenToolkit.vim'
 Plugin 'preservim/nerdcommenter' " Commnet functions so powerful-no comment necessary.
