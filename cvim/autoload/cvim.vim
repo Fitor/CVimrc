@@ -275,18 +275,37 @@ endf
 
 " session
 fu! cvim#save_tabs_name()
-    let g:startify_tabs_name = []
-    let list = g:startify_tabs_name
-    call remove(list, 0, -1)
-	for nr in range(1, tabpagenr('$'))
-        call add(list, gettabvar(nr, 'cvname'))
-	endfo
+    let tabnameStrings = []
+    for nr in range(1, tabpagenr('$'))
+        let name = gettabvar(nr, 'cvname')
+        if empty(name)
+            continue
+        endif
+        call add(tabnameStrings, nr.' '.name)
+    endfor
+
+    try
+        call writefile(tabnameStrings, v:this_session.'_tabname')
+    catch
+        echohl errormsg
+        echom 'Failed to write tab name file'.cvim#utils#relpath(v:this_session.'_tabname').'.'
+        echohl normal
+    endtry
 endf
 
 fu! cvim#load_tabs_name()
-    if exists('g:startify_tabs_name')
-        for i in range(0, len(g:startify_tabs_name) - 1)
-            call settabvar(i + 1, 'cvname', g:startify_tabs_name[i])
-        endfor
-    en
+    if !filereadable(v:this_session.'_tabname')
+        return
+    endif
+
+    let bookmarkStrings = readfile(v:this_session.'_tabname')
+    for i in bookmarkStrings
+        if i ==# ''
+            continue
+        endif
+
+        let nr = substitute(i, '^\(.\{-}\) .*$', '\1', '')
+        let name = substitute(i, '^.\{-} \(.*\)$', '\1', '')
+        call settabvar(nr, 'cvname', name)
+    endfor
 endf
