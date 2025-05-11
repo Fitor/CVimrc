@@ -157,7 +157,7 @@ setup_cvimrc() {
       cd -
       rm -rf "$CVIMRC" 2>/dev/null
     }
-    fmt_error "git clone of cvimrc repo failed"
+    fmt_error "git clone of CVimrc repo failed"
     exit 1
   }
   # Exit installation directory
@@ -192,7 +192,7 @@ setup_vimrc() {
 
   echo "${FMT_GREEN}Using the CVimrc template file and adding it to $vdot/.vimrc.${FMT_RESET}"
 
-  mv -f "$CVIMRC/templates/vimrc-template" "$vdot/.vimrc"
+  cp "$CVIMRC/templates/vimrc-template" "$vdot/.vimrc"
 
   echo
 }
@@ -209,7 +209,16 @@ setup_vundle() {
     mkdir -p "$vdot/.vim/bundle"
   fi
 
-  git clone "$VUNDLE_REMOTE" "$vdot/.vim/bundle/Vundle.vim"
+  git clone "$VUNDLE_REMOTE" "$vdot/.vim/bundle/Vundle.vim" || {
+    [ ! -d "$CVIMRC" ] || {
+      cd -
+      rm -rf "$CVIMRC" 2>/dev/null
+    }
+    fmt_error "git clone of Vundle repo failed"
+    exit 1
+  }
+  
+  vim -c "PluginInstall"
 }
 
 
