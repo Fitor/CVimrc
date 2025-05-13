@@ -284,21 +284,27 @@ fu! cvim#save_tabs_name()
         call add(tabnameStrings, nr.' '.name)
     endfor
 
+    let session_tabs_file = fnamemodify(v:this_session, ':h')
+    let session_tabs_file = session_tabs_file.'/.'.fnamemodify(v:this_session, ":t").'_tabname'
+
     try
-        call writefile(tabnameStrings, v:this_session.'_tabname')
+        call writefile(tabnameStrings, session_tabs_file)
     catch
         echohl errormsg
-        echom 'Failed to write tab name file'.cvim#utils#relpath(v:this_session.'_tabname').'.'
+        echom 'Failed to write tab name file'.cvim#utils#relpath(session_tabs_file).'.'
         echohl normal
     endtry
 endf
 
 fu! cvim#load_tabs_name()
-    if !filereadable(v:this_session.'_tabname')
+    let session_tabs_file = fnamemodify(v:this_session, ':h')
+    let session_tabs_file = session_tabs_file.'/.'.fnamemodify(v:this_session, ":t").'_tabname'
+
+    if !filereadable(session_tabs_file)
         return
     endif
 
-    let bookmarkStrings = readfile(v:this_session.'_tabname')
+    let bookmarkStrings = readfile(session_tabs_file)
     for i in bookmarkStrings
         if i ==# ''
             continue
