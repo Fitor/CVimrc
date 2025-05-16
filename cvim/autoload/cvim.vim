@@ -37,7 +37,7 @@ fu! s:edit_global_cvimrc()
         if !confirm
             retu
         en
-        call filecopy(g:cvimrc . '/cvimrc.vim', g:vimhome . '/cvimrc.vim')
+        call filecopy(g:cvimrc . '/templates/cvimrc.vim', g:vimhome . '/cvimrc.vim')
         exec 'new ' . g:vimhome . '/cvimrc.vim'
     en
 endf
@@ -56,14 +56,14 @@ fu! s:edit_local(f)
         if !confirm
             retu
         en
-        call filecopy(g:cvimrc.'/'.a:f, g:cvimroot.'/.cvim/'.a:f)
+        call filecopy(g:cvimrc.'/templates/'.a:f, g:cvimroot.'/.cvim/'.a:f)
         exec 'new '.g:cvimroot.'/.cvim/'.a:f
     en
 endf
 
 fu! s:open_template(f)
     exec 'new +setlocal\ nomodifiable|setlocal\ readonly '
-                \.g:cvimrc.'/'.a:f
+                \.g:cvimrc.'/templates/'.a:f
 endf
 
 fu! cvim#Edit(...)
@@ -112,8 +112,8 @@ fu! cvim#New()
 
     let g:cvimroot = cwd
     call mkdir(g:cvimroot . '/.cvim')
-    call filecopy(g:cvimrc . '/rgconf', g:cvimroot . '/.cvim/rgconf')
-    call filecopy(g:cvimrc . '/cvimrc.vim', g:cvimroot . '/.cvim/cvimrc.vim')
+    call filecopy(g:cvimrc . '/templates/rgconf', g:cvimroot . '/.cvim/rgconf')
+    call filecopy(g:cvimrc . '/templates/cvimrc.vim', g:cvimroot . '/.cvim/cvimrc.vim')
     exec 'new ' . g:cvimroot . '/.cvim/rgconf'
     exec 'vsplit ' . g:cvimroot . '/.cvim/cvimrc.vim'
 endf
