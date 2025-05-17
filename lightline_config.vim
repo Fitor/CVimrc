@@ -78,7 +78,9 @@ autocmd User StartifyReady call lightline#update()
 
 " for update wincwd after :lcd
 autocmd DirChanged * call lightline#update()
+
+" for update wincwd when enter new buffer
 func UpdateHandler(timer)
     call lightline#update()
 endfunc
-autocmd BufWinEnter * call timer_start(20, "UpdateHandler")
+autocmd BufWinEnter,BufEnter * call timer_start(20, "UpdateHandler")
