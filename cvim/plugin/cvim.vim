@@ -6,6 +6,7 @@ endfun
 command! CVCd call cvim#Cd()
 command! CVTcd call cvim#Tcd()
 command! CVLcd call cvim#Lcd()
+nmap <silent> <leader>cd :call cvim#fcd()<CR>
 
 nmap <silent> <leader>fg :call cvim#files()<CR>
 nmap <silent> <leader>ff :call cvim#curfiles()<CR>
