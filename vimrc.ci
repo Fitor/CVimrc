@@ -80,6 +80,12 @@ autocmd BufReadPost *
 \   exe "normal! g`\"" |
 \ endif
 
+" terminal
+autocmd! TerminalWinOpen,BufWinEnter *
+            \ if &buftype == 'terminal'
+            \ | setlocal nonumber norelativenumber
+            \ | endif
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
