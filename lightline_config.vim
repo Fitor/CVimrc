@@ -53,7 +53,7 @@ let g:lightline.component_function = {
     \   }
 
 let g:lightline.tab_component_function = {
-            \ 'filename': 'lightline#tab#filename',
+            \ 'filename': 'lightline#cvtab#filename',
             \ 'tabname': 'lightline#cvstl#tabname',
             \}
 
