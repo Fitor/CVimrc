@@ -43,24 +43,24 @@ let g:lightline.component = {
     \   }
 
 let g:lightline.component_function = {
-    \       'mode': 'lightline#stl#mode',
-    \       'filename': 'lightline#stl#filename',
-    \       'fileformat': 'lightline#stl#fileformat',
-    \       'filetype': 'lightline#stl#filetype',
-    \       'fileencoding': 'lightline#stl#fileencoding',
-    \       'fugitive': 'lightline#stl#fugitive',
-    \       'codeium': 'lightline#stl#codeium',
+    \       'mode': 'lightline#cvstl#mode',
+    \       'filename': 'lightline#cvstl#filename',
+    \       'fileformat': 'lightline#cvstl#fileformat',
+    \       'filetype': 'lightline#cvstl#filetype',
+    \       'fileencoding': 'lightline#cvstl#fileencoding',
+    \       'fugitive': 'lightline#cvstl#fugitive',
+    \       'codeium': 'lightline#cvstl#codeium',
     \   }
 
 let g:lightline.tab_component_function = {
             \ 'filename': 'lightline#tab#filename',
-            \ 'tabname': 'lightline#stl#tabname',
+            \ 'tabname': 'lightline#cvstl#tabname',
             \}
 
 let g:lightline.component_expand = {
-    \       'cvim': 'lightline#stl#cvim',
-    \       'tabcwd': 'lightline#stl#tabcwd',
-    \       'wincwd': 'lightline#stl#wincwd',
+    \       'cvim': 'lightline#cvstl#cvim',
+    \       'tabcwd': 'lightline#cvstl#tabcwd',
+    \       'wincwd': 'lightline#cvstl#wincwd',
     \   }
 
 let g:lightline.component_type = {
