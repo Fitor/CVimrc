@@ -119,6 +119,15 @@ fu! cvim#New()
 endf
 
 " cwd
+fu! cvim#fcd()
+    if exists('g:cvimroot')
+        let dir = g:cvimroot
+    else
+        let dir = getcwd()
+    en
+    call fzf#vim#files(dir, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline', '--walker=dir,follow,hidden'], 'sink': 'cd'}))
+endf
+
 fu! cvim#Cd()
     if exists('g:cvimroot')
         exec 'cd ' . g:cvimroot
