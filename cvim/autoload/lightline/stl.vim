@@ -102,7 +102,7 @@ function! lightline#stl#fugitive()
 endfunction
 
 " codeium
-function! lightline#stel#codeium()
+function! lightline#stl#codeium()
     if exists('g:loaded_codeium')
         return codeium#GetStatusString()
     endif
