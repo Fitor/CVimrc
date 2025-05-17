@@ -18,6 +18,9 @@ function! lightline#cvstl#filename()
     let fname = expand('%:t')
     return fname =~# '^__Tagbar__\|__Gundo\|NERD_tree' ? '' :
                 \ &ft ==# 'startify' ? '' :
+                \ &ft ==# 'fugitive' ? '' :
+                \ &ft ==# 'fugitiveblame' ? '' :
+                \ &ft ==# 'gitcommit' ? '' :
                 \ (lightline#cvstl#readonly() !=# '' ? lightline#cvstl#readonly() . ' ' : '') .
                 \ (fname !=# '' ? fname : '[No Name]') .
                 \ (lightline#cvstl#modified() !=# '' ? ' ' . lightline#cvstl#modified() : '')
