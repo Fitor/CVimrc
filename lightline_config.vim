@@ -49,7 +49,7 @@ let g:lightline.component_function = {
     \       'filetype': 'lightline#stl#filetype',
     \       'fileencoding': 'lightline#stl#fileencoding',
     \       'fugitive': 'lightline#stl#fugitive',
-    \       'codeium': 'lightline#stel#codeium',
+    \       'codeium': 'lightline#stl#codeium',
     \   }
 
 let g:lightline.tab_component_function = {
