@@ -19,3 +19,6 @@ autocmd! tabNew * call cvim#Cd()
 " auto save/load tab name after save/load session
 autocmd! SessionWritePost * call cvim#save_tabs_name()
 autocmd! SessionLoadPost * call cvim#load_tabs_name()
+
+" terminal quick shell command
+tnoremap <expr> <C-W>p cvim#term_quickcmd()

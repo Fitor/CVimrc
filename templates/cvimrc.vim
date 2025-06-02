@@ -35,3 +35,7 @@
 "           \   s:tmppath: '[TMP]',
 "           \   '\/path\/to\/proj\>': '[PROJ]',
 "           \   }
+" let g:cvim_term_quickcmds = [
+"             \ 'ls',
+"             \ 'pwd',
+"             \ ]
