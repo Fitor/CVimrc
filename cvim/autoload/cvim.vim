@@ -324,3 +324,47 @@ fu! cvim#load_tabs_name()
         call settabvar(nr, 'cvname', name)
     endfor
 endf
+
+" terminal quick shell command
+fu! s:term_quickcmds()
+    if exists('g:cvim_term_quickcmds')
+        return g:cvim_term_quickcmds
+    endif
+    return []
+endf
+
+fu! cvim#term_quickcmd()
+    let cmds = s:term_quickcmds()
+    if 0 == len(cmds)
+        return ''
+    endif
+
+    let r = fzf#run({'source': cmds})
+    if 0 == len(r)
+        return ''
+    endif
+    return r[0]
+endf
+
+fu! s:term_quickcmd_sink(c)
+    call term_sendkeys(bufnr(''), a:c)
+endf
+
+fu! s:term_quickcmd_exit(c)
+    " call win_execute(bufwinid(bufnr('')), 'normal! a')
+    call feedkeys('i', 'x')
+endf
+
+fu! cvim#term_quickcmd2()
+    let cmds = s:term_quickcmds()
+    if 0 == len(cmds)
+        return ''
+    endif
+
+    call fzf#run({'source': cmds,
+                \ 'sink': function('s:term_quickcmd_sink'),
+                \ 'exit': function('s:term_quickcmd_exit'),
+                \ 'window': { 'width': 0.9, 'height': 0.6 }})
+
+    return ''
+endf
