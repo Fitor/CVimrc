@@ -125,7 +125,7 @@ fu! cvim#fcd()
     else
         let dir = getcwd()
     en
-    call fzf#vim#files(dir, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline', '--walker=dir,follow,hidden'], 'sink': 'cd'}))
+    call fzf#vim#files(dir, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline', '--walker=dir,follow,hidden'], 'sink': 'tcd'}))
 endf
 
 fu! cvim#Cd()
