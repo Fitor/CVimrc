@@ -25,3 +25,9 @@ let g:fzf_vim = {}
 
 let g:fzf_vim.preview_window = ['hidden,right,50%,<70(hidden,up,40%)', 'ctrl-/']
 let g:fzf_vim.listproc = { list -> fzf#vim#listproc#quickfix(list) }
+
+call setenv('FZF_DEFAULT_COMMAND', '')
+call setenv('FZF_DEFAULT_COMMAND', '')
+call setenv('FZF_DEFAULT_OPTS', '')
+call setenv('FZF_DEFAULT_OPTS_FILE', '')
+call setenv('FZF_API_KEY', '')
