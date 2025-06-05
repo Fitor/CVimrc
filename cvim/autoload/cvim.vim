@@ -144,14 +144,32 @@ fu! cvim#Lcd()
     exec 'tcd ' . getcwd(-1, 0)
 endf
 
+fu! cvim#update_win_cwd()
+    if exists('w:unfollow_tab_cwd')
+        return
+    endif
+
+    if exists('w:fzf_pushd')
+        return
+    endif
+
+    if getcwd() !=# getcwd(-1, 0)
+        exec 'lcd ' . fnameescape(getcwd(-1, 0))
+        doautocmd DirChanged
+    endif
+endf
+
 " files
 fu! cvim#files()
+    let cwd = getcwd()
     if exists('g:cvimroot')
         let dir = g:cvimroot
     else
-        let dir = getcwd()
+        let dir = cwd
     en
-    call fzf#vim#files(dir, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}))
+    call fzf#vim#files(dir, fzf#vim#with_preview({
+                \ 'options': ['--layout=reverse', '--info=inline'],
+                \ 'sink': 'e +lcd\ ' . fnameescape(cwd)}))
 endf
 
 fu! cvim#curfiles()
