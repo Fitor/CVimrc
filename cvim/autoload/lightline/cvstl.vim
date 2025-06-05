@@ -76,6 +76,10 @@ endfunction
 function! lightline#cvstl#wincwd()
     if haslocaldir() == 1
         " window local directory case
+        if !exists('w:unfollow_tab_cwd') && getcwd() ==# getcwd(-1, 0)
+            return ''
+        endif
+
         if exists('g:cvimroot')
             let p = cvim#utils#relpath(getcwd(), g:cvimroot)
             return cvim#prettypath(p)

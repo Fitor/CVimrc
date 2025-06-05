@@ -22,3 +22,6 @@ autocmd! SessionLoadPost * call cvim#load_tabs_name()
 
 " terminal quick shell command
 tnoremap <expr> <C-W>p cvim#term_quickcmd()
+
+" update window cwd
+autocmd! BufEnter,WinEnter * call cvim#update_win_cwd()
