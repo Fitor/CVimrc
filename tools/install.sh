@@ -218,7 +218,7 @@ setup_vundle() {
     exit 1
   }
   
-  vim -c "PluginInstall"
+  vim -u $CVIMRC/tools/install.vim -c "PluginInstall"
 }
 
 
