@@ -9,5 +9,6 @@ function! lightline#cvtab#filename(n) abort
                 \ ft ==# 'fugitive' ? '[FUGITIVE]' :
                 \ ft ==# 'fugitiveblame' ? '[FUGITIVEBLAME]' :
                 \ ft ==# 'gitcommit' ? '[GITCOMMIT]' :
+                \ ft ==# 'git' ? 'ci-'._[0:7] :
                 \ _ !=# '' ? _ : '[No Name]'
 endfunction
