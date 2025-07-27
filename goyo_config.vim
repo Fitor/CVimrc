@@ -13,14 +13,33 @@ else
     let g:did_goyo_config = 0
 endif
 
+function! s:goyo_enter()
+    if (!exists("g:colors_name"))
+        return
+    endif
+    let g:goyo_colorscheme_last = g:colors_name
+    colorscheme darkblue
+endfunction
+
+function! s:goyo_leave()
+    if (!exists("g:goyo_colorscheme_last"))
+        return
+    endif
+    exec 'colorscheme ' . g:goyo_colorscheme_last
+    unlet g:goyo_colorscheme_last
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
 " before
 if g:did_goyo_config == 0
     let g:did_goyo_config = 1
 
 nmap <leader>g :Goyo<CR>
 
-let g:goyo_width = '80%'
-let g:goyo_height = '85%'
+let g:goyo_width = '100%'
+let g:goyo_height = '100%'
 let g:goyo_linenr = 1
 
 endif
