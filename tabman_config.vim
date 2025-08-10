@@ -6,3 +6,11 @@ let g:did_tabman_config = 1
 nmap <leader>tt  :TMToggle<CR>
 nmap <leader>tn  :tabnew<CR>
 nmap <leader>tc  :tabc<CR>
+
+function! s:close()
+    if &filetype ==# 'tabman'
+        exec 'close'
+    endif
+endfunction
+
+autocmd WinLeave * call s:close()

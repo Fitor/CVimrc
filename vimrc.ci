@@ -136,7 +136,7 @@ cmap w!! w !sudo tee > /dev/null %
 hi Normal ctermfg=252 ctermbg=none
 
 " Highlight current line
-"au Winleave * set nocursorline nocursorcolumn
+"au WinLeave * set nocursorline nocursorcolumn
 "au WinEnter * set cursorline nocursorcolumn
 
 " Switch syntax highlighting on, when the terminal has colors
