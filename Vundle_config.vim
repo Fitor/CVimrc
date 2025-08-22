@@ -42,7 +42,7 @@ else
     Plugin 'MarcWeber/vim-addon-mw-utils'
     Plugin 'garbas/vim-snipmate' " snipMate.vim aims to be a concise vim script that implements some TextMate's snippets features in Vim.
 endif
-Plugin 'honza/vim-snippets'
+Plugin 'honza/vim-snippets' " This plugin contains snippets files for various programming languages.
 Plugin 'jeffkreeftmeijer/vim-numbertoggle' " Toggles between hybrid and absolute line numbers automatically
 if exists('g:cv_drawit_enable') && g:cv_drawit_enable == v:true
     Plugin 'DrawIt' "Ascii drawing plugin: lines, ellipses, arrows, fills, and more!
