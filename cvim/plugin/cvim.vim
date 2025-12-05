@@ -14,7 +14,7 @@ nmap <silent> <leader>ft :call cvim#grep()<CR>
 nmap <silent> <leader>fr :call cvim#curgrep()<CR>
 
 " :cd {cvimroot} after create new tab
-autocmd! tabNew * call cvim#Cd()
+autocmd! tabNew * call cvim#Tcd()
 
 " auto save/load tab name after save/load session
 autocmd! SessionWritePost * call cvim#save_tabs_name()
