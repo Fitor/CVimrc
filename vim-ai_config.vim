@@ -10,6 +10,12 @@ if exists("did_vim_ai_config")
 endif
 let did_vim_ai_config = 1
 
+let g:vim_ai_token_file_path = g:cv_vim_ai_config.token_file
+
+if exists("g:cv_vim_ai_config.rols_config_file")
+    let g:vim_ai_roles_config_file = g:cv_vim_ai_config.rols_config_file
+endif
+
 let s:initial_complete_prompt =<< trim END
     >>> system
 
@@ -22,8 +28,8 @@ END
 let g:vim_ai_complete = {
             \   "engine": "chat",
             \   "options": {
-            \       "model": "deepseek-r1-250120",
-            \       "endpoint_url": "https://ark.cn-beijing.volces.com/api/v3/chat/completions",
+            \       "model": g:cv_vim_ai_config.complete.model,
+            \       "endpoint_url": g:cv_vim_ai_config.complete.endpoint_url,
             \       "max_tokens": 0,
             \       "max_completion_tokens": 0,
             \       "temperature": 0.1,
@@ -42,8 +48,8 @@ let g:vim_ai_complete = {
 let g:vim_ai_edit = {
             \   "engine": "chat",
             \   "options": {
-            \       "model": "deepseek-r1-250120",
-            \       "endpoint_url": "https://ark.cn-beijing.volces.com/api/v3/chat/completions",
+            \       "model": g:cv_vim_ai_config.edit.model,
+            \       "endpoint_url": g:cv_vim_ai_config.edit.endpoint_url,
             \       "max_tokens": 0,
             \       "max_completion_tokens": 0,
             \       "temperature": 0.1,
@@ -68,10 +74,10 @@ END
 
 let g:vim_ai_chat = {
             \   "options": {
-            \       "model": "deepseek-r1-250120",
+            \       "model": g:cv_vim_ai_config.edit.model,
             \       "max_tokens": 0,
             \       "max_completion_tokens": 0,
-            \       "endpoint_url": "https://ark.cn-beijing.volces.com/api/v3/chat/completions",
+            \       "endpoint_url": g:cv_vim_ai_config.edit.endpoint_url,
             \       "temperature": 1,
             \       "request_timeout": 20,
             \       "stream": 1,

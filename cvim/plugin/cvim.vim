@@ -25,3 +25,7 @@ tnoremap <expr> <C-W>p cvim#term_quickcmd()
 
 " update window cwd
 autocmd! BufEnter,WinEnter * call cvim#update_win_cwd()
+
+" vim prompt commands
+command! AIPromptCommitMessage call vimai#prompt#AIPromptCommitMessageFn()
+command! -range=0 AIPromptCodeReview <line1>,<line2>call AIPromptCodeReviewFn(<count>)
