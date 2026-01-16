@@ -60,3 +60,4 @@ endfunction
 autocmd WinLeave * call s:close_tabman_on_win_leave()
 " close tabman when leave current tab
 autocmd TabLeave * call s:close_tabman_on_tab_leave()
+autocmd TabClosed * let s:last_tab = -1
