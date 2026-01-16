@@ -1,5 +1,5 @@
 " custom command suggesting git commit message, takes no arguments
-function! vimai#prompt#AIPromptCommitMessageFn()
+function! vimai#prompt#CommitMessage()
     let l:range = 0
     let l:diff = system('git diff --staged')
     let l:prompt = "generate a short commit message from the diff below:\n" . l:diff
@@ -13,7 +13,7 @@ function! vimai#prompt#AIPromptCommitMessageFn()
 endfunction
 
 " custom command that provides a code review for selected code block
-function! AIPromptCodeReviewFn() range
+function! vimai#prompt#CodeReview(range) range
     let l:prompt = "programming syntax is " . &filetype . ", review the code below"
     let l:config = {
                 \  "options": {
