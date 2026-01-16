@@ -8,6 +8,10 @@ nmap <leader>tn  :tabnew<CR>
 nmap <leader>tc  :tabc<CR>
 
 func s:later_close_on_win_leave_handler(timer)
+    if exists('g:goyo_mode') && g:goyo_mode == 1
+        return
+    endif
+
     if &filetype !=# 'tabman'
         cal tabman#close()
     endif
@@ -23,6 +27,10 @@ let s:processing = 0
 let s:last_tab = 1
 
 func s:later_close_on_tab_leave_handler(timer)
+    if exists('g:goyo_mode') && g:goyo_mode == 1
+        return
+    endif
+
     let current_tab = tabpagenr()
 
     if s:last_tab ==# current_tab
@@ -36,6 +44,11 @@ func s:later_close_on_tab_leave_handler(timer)
 endfunc
 
 function! s:close_tabman_on_tab_leave()
+    if exists('#goyo') == 1
+        let s:last_tab = -1
+        return
+    endif
+
     let s:last_tab = tabpagenr()
     if s:processing ==# 1
         return
