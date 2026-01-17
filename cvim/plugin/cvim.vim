@@ -26,5 +26,5 @@ tnoremap <expr> <C-W>p cvim#term_quickcmd()
 " update window cwd
 autocmd! BufEnter,WinEnter * call cvim#update_win_cwd()
 
-" vim prompt commands
+" vim-ai prompt commands
 command! -complete=custom,vimai#prompt#Complete -range -nargs=1 AIPrompt call vimai#prompt#Exec(<range>, <f-args>)
