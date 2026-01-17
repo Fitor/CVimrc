@@ -33,8 +33,8 @@ if isdirectory(g:vimhome . '/bundle/Vundle.vim')
     exec 'set rtp+=' . fnameescape(g:vimhome . '/bundle/Vundle.vim')
     call vundle#begin()
     Plugin 'VundleVim/Vundle.vim'
-    if filereadable(g:cvimrc.'/Vundle_config.vim')
-        exec 'source ' . fnameescape(g:cvimrc . '/Vundle_config.vim')
+    if filereadable(g:cvimrc.'/Vundle.vim')
+        exec 'source ' . fnameescape(g:cvimrc . '/Vundle.vim')
     endif
     call vundle#end()
 endif
@@ -46,7 +46,7 @@ for b in bundles
         continue
     endif
 
-    let f = g:cvimrc . '/' . substitute(b.name, '.vim', '', '') . '_config.vim'
+    let f = g:cvimrc . '/configs/' . substitute(b.name, '.vim', '', '') . '.vim'
     if filereadable(f)
         exec 'source ' . fnameescape(f)
     endif
@@ -63,13 +63,13 @@ if filereadable(g:cvimrc . '/syntax.vim')
 endif
 
 " cscope
-if filereadable(g:cvimrc . '/cscope_config.vim')
-    exec 'source '. fnameescape(g:cvimrc . '/cscope_config.vim')
+if filereadable(g:cvimrc . '/configs/cscope.vim')
+    exec 'source '. fnameescape(g:cvimrc . '/configs/cscope.vim')
 endif
 
 " quickfix
-if filereadable(g:cvimrc . '/quickfix_config.vim')
-    exec 'source ' . fnameescape(g:cvimrc . '/quickfix_config.vim')
+if filereadable(g:cvimrc . '/configs/quickfix.vim')
+    exec 'source ' . fnameescape(g:cvimrc . '/configs/quickfix.vim')
 endif
 
 " When editing a file, always jump to the last known cursor position.
