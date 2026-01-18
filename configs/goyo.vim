@@ -11,6 +11,8 @@ endif
 let g:did_goyo_config = 1
 
 function! s:goyo_enter()
+    let g:goyo_mode=1
+
     if (!exists("g:colors_name"))
         return
     endif
@@ -18,7 +20,13 @@ function! s:goyo_enter()
     colorscheme darkblue
 endfunction
 
+func s:later_clear_goyo_mode(timer)
+    let g:goyo_mode=0
+endfunction
+
 function! s:goyo_leave()
+    call timer_start(200, "s:later_clear_goyo_mode")
+
     if (!exists("g:goyo_colorscheme_last"))
         return
     endif

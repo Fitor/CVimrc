@@ -14,7 +14,7 @@ nmap <silent> <leader>ft :call cvim#grep()<CR>
 nmap <silent> <leader>fr :call cvim#curgrep()<CR>
 
 " :cd {cvimroot} after create new tab
-autocmd! tabNew * call cvim#Cd()
+autocmd! tabNew * call cvim#Tcd()
 
 " auto save/load tab name after save/load session
 autocmd! SessionWritePost * call cvim#save_tabs_name()
@@ -25,3 +25,6 @@ tnoremap <expr> <C-W>p cvim#term_quickcmd()
 
 " update window cwd
 autocmd! BufEnter,WinEnter * call cvim#update_win_cwd()
+
+" vim-ai prompt commands
+command! -complete=custom,vimai#prompt#Complete -range -nargs=1 AIPrompt call vimai#prompt#Exec(<range>, <f-args>)
