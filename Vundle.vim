@@ -13,47 +13,71 @@ let g:did_vundle_config = 1
 let s:save_cpo = &cpo
 set cpo&vim
 
-Plugin 'mhinz/vim-startify' " The fancy start screen for vim.
+" The fancy start screen for vim.
+Plugin 'mhinz/vim-startify'
+" A tree explorer plugin to rule the Vim world.
 Plugin 'scrooloose/nerdtree'
-Plugin 'itchyny/lightline.vim' "A light and configurable statusline/tabline plugin for Vim
+"A light and configurable statusline/tabline plugin for Vim
+Plugin 'itchyny/lightline.vim'
+" Configurable, flexible, intuitive text aligning
 Plugin 'godlygeek/tabular'
-Plugin 'Fitor/tabman.vim'  " Tab management for Vim
-Plugin 'a.vim' "Alternate Files quickly.(.c --> .h etc)
+" Tab management for Vim
+Plugin 'Fitor/tabman.vim'
+"Alternate Files quickly.(.c --> .h etc)
+Plugin 'a.vim'
+" Generates a doxygen comment skeleton
 Plugin 'DoxygenToolkit.vim'
-Plugin 'preservim/nerdcommenter' " Commnet functions so powerful-no comment necessary.
-Plugin 'tpope/vim-fugitive' " A Git wrapper so awesome.
-Plugin 'junegunn/goyo.vim' " Distraction-free writing in Vim.
-Plugin 'easymotion/vim-easymotion' " Vim motions on speed!
-Plugin 'tpope/vim-surround' " quoting/parenthesizing made simple
-Plugin 'mbriggs/mark.vim' " Hightlight serveral words in different simultaneously.
-Plugin 'vimwiki/vimwiki' " Personal Wiki for Vim
+" Commnet functions so powerful-no comment necessary.
+Plugin 'preservim/nerdcommenter'
+" A Git wrapper so awesome.
+Plugin 'tpope/vim-fugitive'
+" Distraction-free writing in Vim.
+Plugin 'junegunn/goyo.vim'
+" Vim motions on speed!
+Plugin 'easymotion/vim-easymotion'
+" quoting/parenthesizing made simple
+Plugin 'tpope/vim-surround'
+" Hightlight serveral words in different simultaneously.
+Plugin 'mbriggs/mark.vim'
+" Personal Wiki for Vim
+Plugin 'vimwiki/vimwiki'
 
+" calendar.vim creates a calenar window you cam use within vim.
 if exists('g:cv_calendar_enable') && g:cv_calendar_enable == v:true
-    Plugin 'mattn/calendar-vim' " calendar.vim creates a calenar window you cam use within vim.
+    Plugin 'mattn/calendar-vim'
 endif
 
+" Source code browser
 if executable('exuberant-ctags') || executable('exctags') || executable('ctags') || executable('ctags.exe') || executable('tags')
-    Plugin 'vim-scripts/taglist.vim' " Source code browser
+    Plugin 'vim-scripts/taglist.vim'
 endif
 if has("python3") || has("python")
+    " The Ultimate Plugin for Snippets in Vim~
     Plugin 'SirVer/ultisnips'
 else
     Plugin 'tomtom/tlib_vim'
     Plugin 'MarcWeber/vim-addon-mw-utils'
-    Plugin 'garbas/vim-snipmate' " snipMate.vim aims to be a concise vim script that implements some TextMate's snippets features in Vim.
+    " snipMate.vim aims to be a concise vim script that implements some TextMate's snippets features in Vim.
+    Plugin 'garbas/vim-snipmate'
 endif
-Plugin 'honza/vim-snippets' " This plugin contains snippets files for various programming languages.
-Plugin 'jeffkreeftmeijer/vim-numbertoggle' " Toggles between hybrid and absolute line numbers automatically
+" This plugin contains snippets files for various programming languages.
+Plugin 'honza/vim-snippets'
+" Toggles between hybrid and absolute line numbers automatically
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 if exists('g:cv_drawit_enable') && g:cv_drawit_enable == v:true
-    Plugin 'DrawIt' "Ascii drawing plugin: lines, ellipses, arrows, fills, and more!
+    "Ascii drawing plugin: lines, ellipses, arrows, fills, and more!
+    Plugin 'DrawIt'
 endif
-Plugin 'Raimondi/delimitMate' " Provides insert mode auto-completin for quotes, parens, brackets, etc.
+" Provides insert mode auto-completin for quotes, parens, brackets, etc.
+Plugin 'Raimondi/delimitMate'
 if exists('g:cv_ale_enable') && g:cv_ale_enable == v:true
-    Plugin 'dense-analysis/ale' " Asynchronous Lint Engine
+    " Asynchronous Lint Engine
+    Plugin 'dense-analysis/ale'
 endif
 if exists('g:cv_clang_format_enable') && g:cv_clang_format_enable == v:true
     if executable('clang-format')
-        Plugin 'rhysd/vim-clang-format' " This plugin formats your code with specific coding style using clang-format.
+        " This plugin formats your code with specific coding style using clang-format.
+        Plugin 'rhysd/vim-clang-format'
     else
         echom 'command not found: clang-format'
     endif
@@ -65,17 +89,21 @@ if exists('g:cv_ctrlp_enable') && g:cv_ctrlp_enable == v:true
 endif
 
 if exists('g:cv_fzf_enable') && g:cv_fzf_enable == v:true
-    Plugin 'junegunn/fzf' " Things you can do with fzf and Vim.
+    " Things you can do with fzf and Vim.
+    Plugin 'junegunn/fzf'
     Plugin 'junegunn/fzf.vim'
 endif
 
 " code plugin
 Plugin 'pangloss/vim-javascript'
 Plugin 'othree/html5.vim'
-Plugin 'posva/vim-vue' " vim syntax highlighting for Vue components'
-Plugin 'fatih/vim-go' " Go development plugin
+" vim syntax highlighting for Vue components'
+Plugin 'posva/vim-vue'
+" Go development plugin
+Plugin 'fatih/vim-go'
 if exists('g:cv_code_wxapp_enable') && g:cv_code_wxapp_enable == v:true
-    Plugin 'chemzqm/wxapp.vim' " For wx miniprogram
+    " For wx miniprogram
+    Plugin 'chemzqm/wxapp.vim'
 endif
 
 " ai assistant
@@ -85,11 +113,14 @@ if exists('g:cv_ai_assistant_enable') && g:cv_ai_assistant_enable == v:true
     endif
 
     if g:cv_ai_assistant_plugin == 'codeium'
-        Plugin 'Exafunction/codeium.vim' " Free, ultrafast Copilot alternative for Vim and Neovim
+        " Free, ultrafast Copilot alternative for Vim and Neovim
+        Plugin 'Exafunction/codeium.vim'
     elseif g:cv_ai_assistant_plugin == 'vim-ollama'
-        Plugin 'gergap/vim-ollama' " This plugin adds Copilot-like code completion support to Vim.
+        " This plugin adds Copilot-like code completion support to Vim.
+        Plugin 'gergap/vim-ollama'
     elseif g:cv_ai_assistant_plugin == 'vim-ai'
-        Plugin 'madox2/vim-ai' " This plugin adds Artificial Intelligence (AI) capabilities to your Vim and Neovim.
+        " This plugin adds Artificial Intelligence (AI) capabilities to your Vim and Neovim.
+        Plugin 'madox2/vim-ai'
     endif
 endif
 
