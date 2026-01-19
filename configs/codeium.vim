@@ -15,9 +15,3 @@ if !exists('g:loaded_codeium')
 endif
 
 let g:codeium_disable_bindings = 1
-
-nmap <silent> <leader>ao :Codeium Enable<CR>
-nmap <silent> <leader>ac :Codeium Disable<CR>
-imap <script><silent><nowait><expr> <leader>aa codeium#Accept()
-imap <leader>aj <Cmd>call codeium#CycleCompletions(1)<CR>
-imap <leader>ak <Cmd>call codeium#CycleCompletions(-1)<CR>

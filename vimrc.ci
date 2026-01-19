@@ -18,9 +18,6 @@ set nocompatible
 let g:vimhome = expand($HOME . '/.vim')
 let g:cvimrc = expand('<sfile>:p:h')
 
-" mapleader
-let mapleader = ';'
-
 " cvim
 if isdirectory(g:cvimrc . '/cvim')
     exec 'set rtp+=' . fnameescape(g:cvimrc . '/cvim')
@@ -65,11 +62,6 @@ endif
 " cscope
 if filereadable(g:cvimrc . '/configs/cscope.vim')
     exec 'source '. fnameescape(g:cvimrc . '/configs/cscope.vim')
-endif
-
-" quickfix
-if filereadable(g:cvimrc . '/configs/quickfix.vim')
-    exec 'source ' . fnameescape(g:cvimrc . '/configs/quickfix.vim')
 endif
 
 " When editing a file, always jump to the last known cursor position.
@@ -129,9 +121,6 @@ set scrolloff=3
 set showtabline=2 " always show the tabline
 
 set matchtime=1" Highlight current line
-
-" get the root right to write
-cmap w!! w !sudo tee > /dev/null %
 
 hi Normal ctermfg=252 ctermbg=none
 

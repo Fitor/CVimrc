@@ -10,9 +10,7 @@ if exists("did_ctrlp_config")
 endif
 let did_ctrlp_config = 1
 
-let g:ctrlp_map = '<leader>p'
 let g:ctrlp_cmd = 'CtrlP'
-map <leader>f :CtrlPMRU<CR>
 
 let g:ctrlp_custom_ignore = {
             \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',

@@ -6,12 +6,6 @@ endfun
 command! CVCd call cvim#Cd()
 command! CVTcd call cvim#Tcd()
 command! CVLcd call cvim#Lcd()
-nmap <silent> <leader>cd :call cvim#fcd()<CR>
-
-nmap <silent> <leader>fg :call cvim#files()<CR>
-nmap <silent> <leader>ff :call cvim#curfiles()<CR>
-nmap <silent> <leader>ft :call cvim#grep()<CR>
-nmap <silent> <leader>fr :call cvim#curgrep()<CR>
 
 " :cd {cvimroot} after create new tab
 autocmd! tabNew * call cvim#Tcd()
@@ -19,9 +13,6 @@ autocmd! tabNew * call cvim#Tcd()
 " auto save/load tab name after save/load session
 autocmd! SessionWritePost * call cvim#save_tabs_name()
 autocmd! SessionLoadPost * call cvim#load_tabs_name()
-
-" terminal quick shell command
-tnoremap <expr> <C-W>p cvim#term_quickcmd()
 
 " update window cwd
 autocmd! BufEnter,WinEnter * call cvim#update_win_cwd()

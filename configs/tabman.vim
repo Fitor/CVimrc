@@ -3,10 +3,6 @@ if exists("g:did_tabman_config")
 en
 let g:did_tabman_config = 1
 
-nmap <leader>tt  :TMToggle<CR>
-nmap <leader>tn  :tabnew<CR>
-nmap <leader>tc  :tabc<CR>
-
 func s:later_close_on_win_leave_handler(timer)
     if exists('g:goyo_mode') && g:goyo_mode == 1
         return

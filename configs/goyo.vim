@@ -37,8 +37,6 @@ endfunction
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
-nmap <leader>g :Goyo<CR>
-
 let g:goyo_width = '100%'
 let g:goyo_height = '100%'
 let g:goyo_linenr = 1
