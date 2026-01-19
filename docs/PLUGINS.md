@@ -1,0 +1,2 @@
+# Plugins
+- 'embear/vim-localvimrc'

@@ -68,7 +68,6 @@ if exists('g:cv_fzf_enable') && g:cv_fzf_enable == v:true
     Plugin 'junegunn/fzf' " Things you can do with fzf and Vim.
     Plugin 'junegunn/fzf.vim'
 endif
-Plugin 'embear/vim-localvimrc'
 
 " code plugin
 Plugin 'pangloss/vim-javascript'
