@@ -1,19 +1,11 @@
 " vimrc.ci
-" An vimrc file created by Chen Ci.
-"
-" Maintainer:   Chen Ci <chen2033@live.com>
-"
-" Create Time:  Thu, 23 Mar 2017 01:51:43 +0800
-" Change Log:   Create this file.  Thu, 23 Mar 2017 01:53:22 +0800
-"
-" To use this file, create a hard link to it.
-" ln vimrc.ci .vimrc
-"   or
-" ln vimrc.ci .vim/vimrc
 
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
+
+" default mapleader
+let mapleader = ';'
 
 let g:vimhome = expand($HOME . '/.vim')
 let g:cvimrc = expand('<sfile>:p:h')
