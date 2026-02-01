@@ -2,7 +2,7 @@
 " set title titlestring=Hello,vim~
 
 " mapleader
-let mapleader = ';'
+" let mapleader = ';'
 
 " ai assistant
 " let g:cv_ai_assistant_enable = v:true
