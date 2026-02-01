@@ -7,5 +7,5 @@ let g:cvimrc = expand('<sfile>:p:h:h')
 exec 'set rtp+=' . fnameescape(g:vimhome . '/bundle/Vundle.vim')
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-exec 'source ' . fnameescape(g:cvimrc . '/Vundle_config.vim')
+exec 'source ' . fnameescape(g:cvimrc . '/Vundle.vim')
 call vundle#end()
