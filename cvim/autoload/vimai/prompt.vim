@@ -15,6 +15,23 @@ function! s:PromptCommitMessage(range) abort
     call vim_ai#AIRun(0, l:config, l:prompt)
 endfunction
 
+" custom command to review git staged code, takes no arguments
+function! s:PromptReviewStaged(range) abort
+    let l:diff = system('git diff --staged')
+    if v:shell_error != 0
+        echom 'Error: Failed to get git diff'
+        return
+    endif
+    let l:prompt = "programming syntax is " . &filetype . ", review the staged changes below:\n" . l:diff
+    let l:config = {
+                \  "options": {
+                \    "initial_prompt": ">>> system\nyou are a code review expert",
+                \    "temperature": 0.7,
+                \  },
+                \}
+    call vim_ai#AIChatRun(0, l:config, l:prompt)
+endfunction
+
 " custom command that provides a code review for selected code block
 function! s:PromptCodeReview(range) abort
     let l:prompt = "programming syntax is " . &filetype . ", review the code below"
