@@ -36,6 +36,9 @@
 " let g:cv_vim_ai_config.chat.model = 'glm-4.7'
 " let g:cv_vim_ai_config.chat.endpoint_url = 'https://open.bigmodel.cn/api/paas/v4/chat/completions'
 
+" claude code agent
+" let g:cv_claude_code_enable = v:true
+
 " ctrlp
 " let g:cv_ctrlp_enable = v:true
 

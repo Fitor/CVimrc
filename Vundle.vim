@@ -124,6 +124,11 @@ if exists('g:cv_ai_assistant_enable') && g:cv_ai_assistant_enable == v:true
     endif
 endif
 
+" Agents: claude code, disabled by default.
+if exists('g:cv_claude_code_enable') && g:cv_claude_code_enable == v:true
+    Plugin 'rishi-opensource/vim-claude-code'
+endif
+
 let &cpo = s:save_cpo
 unlet s:save_cpo
 
